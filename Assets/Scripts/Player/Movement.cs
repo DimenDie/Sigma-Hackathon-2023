@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float playerSpeed, playerMANABREK;
+    [SerializeField] float playerSpeed;
+    [SerializeField] float playerSpeedChange;
     [SerializeField] Transform centralPoint, sphereTransform, directionalPoint ,camera;
     Rigidbody playerRigidbody;
 
@@ -23,15 +24,19 @@ public class Movement : MonoBehaviour
 
     void Move()
     {   
-
-
         Vector3 input = 
                 (Input.GetAxisRaw("Vertical") * directionalPoint.forward +
                 Input.GetAxisRaw("Horizontal") * directionalPoint.right)
-                * playerSpeed * Time.deltaTime;
+                * Time.deltaTime;
 
-        playerRigidbody.AddForce(input.normalized,ForceMode.VelocityChange);
-        
-        playerRigidbody.velocity = Vector3.MoveTowards(playerRigidbody.velocity, Vector3.zero, playerMANABREK);
+        playerRigidbody.velocity = Vector3.MoveTowards(playerRigidbody.velocity, input.normalized * playerSpeed, playerSpeedChange);
+
+        if (input.magnitude == 0)
+        {
+            playerRigidbody.velocity = Vector3.MoveTowards(playerRigidbody.velocity, Vector3.zero, playerSpeedChange);
+            playerRigidbody.angularVelocity = Vector3.MoveTowards(playerRigidbody.angularVelocity, Vector3.zero, playerSpeedChange);
+
+        }
+
     }
 }
