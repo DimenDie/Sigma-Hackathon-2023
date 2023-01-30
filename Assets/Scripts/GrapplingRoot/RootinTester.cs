@@ -42,11 +42,9 @@ public class RootinTester : MonoBehaviour
     float DetectAngleZ()
     {
         Vector3 playerDirection = player.up;
-        playerDirection.z = 0;
         Vector3 targetDirection = player.position - target.position;
-        targetDirection.z = 0;
 
-        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.forward);
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection));
     }
 
     IEnumerator StartGrapple()
@@ -66,7 +64,7 @@ public class RootinTester : MonoBehaviour
             t += Time.deltaTime / grappleTime;
             yield return null;
         }
-        hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
+        hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ()+90);
         hookObj.transform.position = (player.position + target.position) / 2;
         hookObj.transform.localScale = new Vector3
             (Vector3.Distance(player.position, target.position),
