@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(player, levelStart.transform.position, Quaternion.identity);
+        Instantiate(player, levelStart.transform.position, levelStart.transform.rotation);
     }
 
 
