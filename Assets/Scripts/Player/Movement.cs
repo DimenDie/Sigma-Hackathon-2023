@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
 
     [Header("Transform References")]
     [SerializeField] Transform centralPoint;
+    [SerializeField] Transform playerPrefab;
     [SerializeField] Transform sphereTransform;
     [SerializeField] Transform directionalPoint;
     [SerializeField] Transform camera;
@@ -37,6 +38,11 @@ public class Movement : MonoBehaviour
     public bool activeGrapple;
     private Vector3 velocityToSet;
 
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     private void Start()
     {
@@ -51,6 +57,7 @@ public class Movement : MonoBehaviour
         {
             playerRigidbody.velocity = Vector3.zero;
         }
+
         Move();
         CameraTracking();
         CameraRotation();
@@ -66,7 +73,8 @@ public class Movement : MonoBehaviour
 
         float Yoffset = Vector3.SignedAngle(XZforward, XZtoCamDirection, Vector3.Cross(XZforward, XZtoCamDirection));
 
-        cameraXZPivot.rotation = Quaternion.Euler(0, cameraXZPivot.rotation.y + Yoffset, 0);
+
+        cameraXZPivot.rotation = Quaternion.Euler(0, playerPrefab.rotation.eulerAngles.y + Yoffset, 0);
         camera.parent = cameraXZPivot;
     }
 

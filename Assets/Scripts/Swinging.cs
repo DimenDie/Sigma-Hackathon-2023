@@ -16,55 +16,121 @@ public class Swinging : MonoBehaviour
 
     private Vector3 currentGrapplePosition;
 
+
+    GameObject hookObj;
+
+    [Space(10)]
+    [Header("RootPrefab")]
+    [SerializeField] GameObject HookSpritePrefab;
+
+    [Space(10)]
+    [Header("RootOriginReference")]
+    [SerializeField] Transform rootOrigin;
+
+    [Space(10)]
+    [Header("Hook Values")]
+    [SerializeField] float grappleTime;
+
     private void Update()
     {
+        rootOrigin.position = player.position;
         shootCenter.eulerAngles = Vector3.zero;
         if (Input.GetKeyDown(swingKey)) StartSwing();
         if (Input.GetKeyUp(swingKey)) StopSwing();
     }
-    private void LateUpdate()
-    {
-        DrawRope();
-    }
+
     void StartSwing()
     {
-        print("start swing called");
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, maxSwingDistance, isGrappleable))
         {
-            print("raycasted");
             swingPoint = hit.point;
-            joint = player.gameObject.AddComponent<SpringJoint>();
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = swingPoint;
 
-            float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
-
-            joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = distanceFromPoint * 0.25f;
-
-            joint.spring = 4.5f;
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
-
-            lineRenderer.positionCount = 2;
-            currentGrapplePosition = shootCenter.position;
+            StartCoroutine(StartGrappleAnimation());
 
         }
     }
+
+    IEnumerator StartGrappleAnimation()
+    {
+        hookObj = Instantiate(HookSpritePrefab, rootOrigin.position, Quaternion.identity);
+        float t = 0;
+        Vector3 defautScale = hookObj.transform.localScale;
+        defautScale.x = 0;
+        while (t <= 1)
+        {
+            hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
+            hookObj.transform.position = Vector3.Lerp(rootOrigin.position, (rootOrigin.position + swingPoint) / 2, t);
+            hookObj.transform.localScale = new Vector3
+                (Mathf.Lerp(defautScale.x, Vector3.Distance(rootOrigin.position, swingPoint) / 2, t),
+                defautScale.y,
+                defautScale.z);
+
+            t += Time.deltaTime / grappleTime;
+            yield return null;
+        }
+
+        CreateJoint();
+
+        while (joint)
+        {
+            hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
+            hookObj.transform.position = (rootOrigin.position + swingPoint) / 2;
+            hookObj.transform.localScale = new Vector3
+                (Vector3.Distance(rootOrigin.position, swingPoint) / 2,
+                defautScale.y,
+                defautScale.z);
+            yield return null;
+        }
+
+    }
+
+    void CreateJoint()
+    {
+        joint = player.gameObject.AddComponent<SpringJoint>();
+        joint.autoConfigureConnectedAnchor = false;
+        joint.connectedAnchor = swingPoint;
+
+        float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
+
+        joint.maxDistance = distanceFromPoint * 0.8f;
+        joint.minDistance = distanceFromPoint * 0.25f;
+
+        joint.spring = 4.5f;
+        joint.damper = 7f;
+        joint.massScale = 4.5f;
+
+        lineRenderer.positionCount = 2;
+        currentGrapplePosition = shootCenter.position;
+    }
+
+
     void StopSwing()
     {
-        print("stop swing called");
+        Destroy(hookObj);
         lineRenderer.positionCount = 0;
         Destroy(joint);
     }
 
-    void DrawRope()
+    float DetectAngleY()
     {
-        if (!joint) return;
+        Vector3 playerDirection = rootOrigin.forward;
+        playerDirection.y = 0;
+        Vector3 targetDirection = rootOrigin.position - swingPoint;
+        targetDirection.y = 0;
 
-        lineRenderer.SetPosition(0, shootCenter.position);
-        lineRenderer.SetPosition(1, swingPoint);
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.up);
     }
+
+
+    float DetectAngleZ()
+    {
+        Vector3 playerDirection = rootOrigin.up;
+        Vector3 targetDirection = rootOrigin.position - swingPoint;
+
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection));
+    }
+
+
 }
