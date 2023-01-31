@@ -153,7 +153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3206722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cab2836dd7a5b4a4fa3fc0b8a4fb93c2, type: 3}
   m_Name: 
@@ -171,6 +171,32 @@ MonoBehaviour:
   velocityMultiplier: 1.25
   grapplingCooldown: 0
   grappleKey: 323
+--- !u!114 &3206728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a139b464f632d4a9cd3cf9b8de7bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingKey: 323
+  lineRenderer: {fileID: 962118147}
+  shootCenter: {fileID: 962118146}
+  camera: {fileID: 2120919014}
+  player: {fileID: 3206730}
+  isGrappleable:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!4 &3206730 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8088693070341542211, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079067580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &348562944
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8088693070341542211, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
