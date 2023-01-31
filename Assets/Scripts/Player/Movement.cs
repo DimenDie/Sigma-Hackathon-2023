@@ -17,6 +17,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float cameraMaxDistance;
     [SerializeField] float cameraSmoothTime;
     [SerializeField] float mouseSensivity;
+    [SerializeField] float cameraMaxAngle;
+    [SerializeField] float cameraMinAngle;
+    float Xinput = 0;
 
     [Space(10)]
 
@@ -114,14 +117,15 @@ public class Movement : MonoBehaviour
 
     void CameraRotation()
     {
-        Vector3 Yinput = new Vector3(0, Input.GetAxis("Mouse X") * mouseSensivity * Time.deltaTime, 0);
-        centralPoint.Rotate(Yinput);
+        centralPoint.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensivity * Time.deltaTime, 0));
 
-        Vector3 XZinput = new Vector3(Input.GetAxis("Mouse Y") * mouseSensivity * Time.deltaTime, 0, 0);
-        cameraXZPivot.Rotate(-XZinput);
+        Xinput += Input.GetAxis("Mouse Y") * mouseSensivity * Time.deltaTime;
+
+
+        Xinput = Mathf.Clamp(Xinput, cameraMinAngle - 30, cameraMaxAngle - 30);
+
+        cameraXZPivot.rotation = Quaternion.Euler(-Xinput, cameraXZPivot.rotation.eulerAngles.y, cameraXZPivot.rotation.eulerAngles.z);
     }
-
-
 
     public void GrappleToPosition(Vector3 targetPosition, float trajectoryHeight, float velocityMultiplier)
     {
