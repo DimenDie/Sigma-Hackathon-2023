@@ -120,7 +120,7 @@ public class Swinging : MonoBehaviour
         Vector3 targetDirection = rootOrigin.position - swingPoint;
         targetDirection.y = 0;
 
-        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.up);
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.up) + gameObject.transform.rotation.eulerAngles.y;
     }
 
 
@@ -129,7 +129,7 @@ public class Swinging : MonoBehaviour
         Vector3 playerDirection = rootOrigin.up;
         Vector3 targetDirection = rootOrigin.position - swingPoint;
 
-        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection));
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection)) + gameObject.transform.rotation.eulerAngles.z;
     }
 
 

@@ -62,7 +62,6 @@ public class Movement : MonoBehaviour
         CameraTracking();
         CameraRotation();
 
-
     }
 
     void SetXZPivot()

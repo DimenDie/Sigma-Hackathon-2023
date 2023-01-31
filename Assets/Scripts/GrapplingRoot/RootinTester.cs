@@ -34,9 +34,10 @@ public class RootinTester : MonoBehaviour
         float t = 0;
         Vector3 defautScale = hookObj.transform.localScale;
         defautScale.x = 0;
+
         while (t<=1)
         {
-            hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() +90, DetectAngleZ()+90);
+            hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
             hookObj.transform.position = Vector3.Lerp(player.position, (player.position + target.position)/2, t);
             hookObj.transform.localScale = new Vector3 
                 (Mathf.Lerp(defautScale.x, Vector3.Distance(player.position, target.position)/2, t), 
@@ -68,7 +69,7 @@ public class RootinTester : MonoBehaviour
         Vector3 targetDirection = player.position - target.position;
         targetDirection.y = 0;
 
-        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.up);
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.up) + player.rotation.eulerAngles.y;
     }
 
 
@@ -77,7 +78,7 @@ public class RootinTester : MonoBehaviour
         Vector3 playerDirection = player.up;
         Vector3 targetDirection = player.position - target.position;
 
-        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection));
+        return Vector3.SignedAngle(playerDirection, targetDirection, Vector3.Cross(playerDirection, targetDirection)) + player.rotation.eulerAngles.z;
     }
 
 }
