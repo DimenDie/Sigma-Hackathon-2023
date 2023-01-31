@@ -11,11 +11,12 @@ public class Movement : MonoBehaviour
 
     [Space(10)]
 
-    [Header("Camera Tracking Values")]
+    [Header("Camera Values")]
     [SerializeField] float cameraMinSpeed;
     [SerializeField] float cameraMaxSpeed;
     [SerializeField] float cameraMaxDistance;
     [SerializeField] float cameraSmoothTime;
+    [SerializeField] float mouseSensivity;
 
     [Space(10)]
 
@@ -47,6 +48,8 @@ public class Movement : MonoBehaviour
         }
         Move();
         CameraTracking();
+        CameraMoving();
+
     }
 
     void Move()
@@ -92,6 +95,12 @@ public class Movement : MonoBehaviour
             + Mathf.Sqrt(2 * (displacementY - trajectoryHeight) / gravity));
 
         return velocityXZ + velocityY;
+    }
+
+    void CameraMoving()
+    {
+        Vector3 input = new Vector3(0,Input.GetAxis("Mouse X")* mouseSensivity, 0);
+        centralPoint.Rotate(input);
     }
 
     public void GrappleToPosition(Vector3 targetPosition, float trajectoryHeight, float velocityMultiplier)
