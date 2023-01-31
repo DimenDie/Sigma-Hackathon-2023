@@ -166,6 +166,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1997516250220935994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5689988515762877612}
+  m_Layer: 0
+  m_Name: XZPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5689988515762877612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997516250220935994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8088693069467680799}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3915452597601045250
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +440,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8088693069467680799}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8088693069467680798
 GameObject:
@@ -439,8 +470,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8088693068963944436}
   - {fileID: 8088693070201699968}
+  - {fileID: 5689988515762877612}
+  - {fileID: 8088693068963944436}
   m_Father: {fileID: 8088693070341542211}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -470,13 +502,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8088693070201699997}
-  m_LocalRotation: {x: 0.272532, y: 0.4030582, z: -0.12708373, w: 0.86436117}
-  m_LocalPosition: {x: -5.5, y: 6, z: -5}
+  m_LocalRotation: {x: 0.27253205, y: 0.40305826, z: -0.12708372, w: 0.8643611}
+  m_LocalPosition: {x: -5.5000005, y: 6, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8088693069467680799}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 35, y: 50, z: 0}
 --- !u!20 &8088693070201699971
 Camera:
@@ -615,7 +647,7 @@ MonoBehaviour:
   cameraMaxSpeed: 12
   cameraMaxDistance: 1
   cameraSmoothTime: 10
-  mouseSensivity: 10
+  mouseSensivity: 100
   centralPoint: {fileID: 8088693069467680799}
   sphereTransform: {fileID: 8631841382436154697}
   directionalPoint: {fileID: 8088693068963944436}

@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     [SerializeField] Transform sphereTransform;
     [SerializeField] Transform directionalPoint;
     [SerializeField] Transform camera;
+    [SerializeField] Transform cameraXZPivot;
 
     //Other
     Vector3 cameraVelocity;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        SetXZPivot();
         playerRigidbody = sphereTransform.GetComponent<Rigidbody>();
         directionalPoint.rotation = Quaternion.Euler(0, camera.rotation.eulerAngles.y, 0);
     }
@@ -48,8 +50,21 @@ public class Movement : MonoBehaviour
         }
         Move();
         CameraTracking();
-        CameraMoving();
+        CameraRotation();
 
+
+    }
+
+    void SetXZPivot()
+    {
+        Vector3 XZforward = cameraXZPivot.forward;
+        Vector3 XZtoCamDirection = cameraXZPivot.position - camera.position;
+        XZtoCamDirection.y = 0;
+
+        float Yoffset = Vector3.SignedAngle(XZforward, XZtoCamDirection, Vector3.Cross(XZforward, XZtoCamDirection));
+
+        cameraXZPivot.rotation = Quaternion.Euler(0, cameraXZPivot.rotation.y + Yoffset, 0);
+        camera.parent = cameraXZPivot;
     }
 
     void Move()
@@ -97,11 +112,16 @@ public class Movement : MonoBehaviour
         return velocityXZ + velocityY;
     }
 
-    void CameraMoving()
+    void CameraRotation()
     {
-        Vector3 input = new Vector3(0,Input.GetAxis("Mouse X")* mouseSensivity, 0);
-        centralPoint.Rotate(input);
+        Vector3 Yinput = new Vector3(0, Input.GetAxis("Mouse X") * mouseSensivity * Time.deltaTime, 0);
+        centralPoint.Rotate(Yinput);
+
+        Vector3 XZinput = new Vector3(Input.GetAxis("Mouse Y") * mouseSensivity * Time.deltaTime, 0, 0);
+        cameraXZPivot.Rotate(-XZinput);
     }
+
+
 
     public void GrappleToPosition(Vector3 targetPosition, float trajectoryHeight, float velocityMultiplier)
     {
