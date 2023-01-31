@@ -647,11 +647,12 @@ MonoBehaviour:
   cameraMaxSpeed: 12
   cameraMaxDistance: 1
   cameraSmoothTime: 10
-  mouseSensivity: 100
+  mouseSensivity: 400
   centralPoint: {fileID: 8088693069467680799}
   sphereTransform: {fileID: 8631841382436154697}
   directionalPoint: {fileID: 8088693068963944436}
   camera: {fileID: 8088693070201699968}
+  cameraXZPivot: {fileID: 5689988515762877612}
   freeze: 0
   activeGrapple: 0
 --- !u!1 &8971635192094521331
