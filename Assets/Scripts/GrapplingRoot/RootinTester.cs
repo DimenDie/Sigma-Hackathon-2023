@@ -64,12 +64,17 @@ public class RootinTester : MonoBehaviour
             t += Time.deltaTime / grappleTime;
             yield return null;
         }
-        hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ()+90);
-        hookObj.transform.position = (player.position + target.position) / 2;
-        hookObj.transform.localScale = new Vector3
-            (Vector3.Distance(player.position, target.position),
-            defautScale.y,
-            defautScale.z);
+        while(true)
+        {
+            hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
+            hookObj.transform.position = (player.position + target.position) / 2;
+            hookObj.transform.localScale = new Vector3
+                (Vector3.Distance(player.position, target.position),
+                defautScale.y,
+                defautScale.z);
+            yield return null;
+        }
+
     }
 
 }
