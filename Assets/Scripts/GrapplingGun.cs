@@ -8,12 +8,15 @@ using UnityEngine.TextCore.Text;
 public class GrapplingGun : MonoBehaviour
 {
     public LayerMask isGrappleable;
-    public Transform grappleBase, player;
-    public Camera mainCamera;
+    public Transform player;
+    private Camera mainCamera;
     private float maxDistance = 100f;
-    private float force = 1f;
+    [SerializeField]private float force = 25f;
 
-
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) //Should change to newer input system in unity
@@ -38,11 +41,10 @@ public class GrapplingGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxDistance, isGrappleable))
         {
             Vector3 direction = player.transform.position - hit.transform.gameObject.transform.position;
+            direction = Vector3.Normalize(direction);
+            print(direction * -force);
 
-
-            print(direction * force);
-
-            player.GetComponent<Rigidbody>().AddForce(direction * -force);
+            player.GetComponent<Rigidbody>().velocity += direction * -force;
             
         }
     }
