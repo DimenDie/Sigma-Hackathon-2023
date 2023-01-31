@@ -187,16 +187,10 @@ MonoBehaviour:
   lineRenderer: {fileID: 962118147}
   shootCenter: {fileID: 962118146}
   camera: {fileID: 2120919014}
-  player: {fileID: 3206730}
+  player: {fileID: 1716758495}
   isGrappleable:
     serializedVersion: 2
     m_Bits: 64
---- !u!4 &3206730 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8088693070341542211, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079067580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &348562944
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
