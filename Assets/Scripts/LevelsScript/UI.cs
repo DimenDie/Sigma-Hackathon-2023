@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public GameObject pauseMenu;
-    [SerializeField] private GameObject stopwatch;
+    [SerializeField] private GameObject HUDMedal;
 
     private void Start()
     {
@@ -16,8 +16,9 @@ public class UI : MonoBehaviour
     void Update()
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
+        Debug.Log(timeSpan);
 
-        stopwatch.GetComponent<TextMeshProUGUI>().text = string.Format("{0:D1}:{1:D2}:{2:D3}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+        HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
         if (Input.GetKeyDown(KeyCode.B)) //Change to escape later
         {
