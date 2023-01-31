@@ -849,7 +849,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 962118147}
   shootCenter: {fileID: 962118146}
   camera: {fileID: 8088693070201699968}
-  player: {fileID: 8088693070341542211}
+  player: {fileID: 8631841382436154697}
   isGrappleable:
     serializedVersion: 2
     m_Bits: 64
