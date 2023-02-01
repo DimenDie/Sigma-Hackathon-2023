@@ -56,7 +56,7 @@ public class Grappling : MonoBehaviour
 
         grappling = true;
 
-        playerMovement.freeze = true;
+        playerMovement.grappleFreeze = true;
 
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -78,7 +78,7 @@ public class Grappling : MonoBehaviour
 
     private void ExecuteGrapple()
     {
-        playerMovement.freeze = false;
+        playerMovement.grappleFreeze = false;
 
         Vector3 lowestPoint = new Vector3(shootPoint.transform.position.x, shootPoint.transform.position.y - 1f, shootPoint.transform.position.z);
         float grapplePointRelativeYPos = grapplePoint.y - lowestPoint.y;
@@ -94,7 +94,7 @@ public class Grappling : MonoBehaviour
 
     private void StopGrapple()
     {
-        playerMovement.freeze = false;
+        playerMovement.grappleFreeze = false;
 
         playerMovement.activeGrapple = false;
 

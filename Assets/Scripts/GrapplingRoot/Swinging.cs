@@ -16,6 +16,8 @@ public class Swinging : MonoBehaviour
 
     private Vector3 currentGrapplePosition;
 
+    public Movement playerMovement;
+
 
     GameObject hookObj;
 
@@ -45,6 +47,8 @@ public class Swinging : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, maxSwingDistance, isGrappleable))
         {
+            playerMovement.activeSwing = true;
+
             swingPoint = hit.transform.position;
 
             StartCoroutine(StartGrappleAnimation());
@@ -111,6 +115,7 @@ public class Swinging : MonoBehaviour
 
     void StopSwing()
     {
+        playerMovement.activeSwing = false;
         Destroy(hookObj);
         Destroy(joint);
     }

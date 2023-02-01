@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float playerSpeed;
     [SerializeField] float playerDeceleration;
     [SerializeField] float playerAcceleration;
+    [SerializeField] float swingSpeed;
 
     [Space(10)]
 
@@ -34,8 +35,9 @@ public class Movement : MonoBehaviour
     //Other
     Vector3 cameraVelocity;
     Rigidbody playerRigidbody;
-    public bool freeze;
-    public bool activeGrapple;
+    [HideInInspector] public bool grappleFreeze;
+    [HideInInspector] public bool activeGrapple;
+    public bool activeSwing;
     private Vector3 velocityToSet;
 
     private void Awake()
@@ -53,7 +55,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (freeze)
+        if (grappleFreeze) //Currently instead of grapple swinging is used
         {
             playerRigidbody.velocity = Vector3.zero;
         }
@@ -96,7 +98,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            Vector3 velocityDirection = Vector3.MoveTowards(playerRigidbody.velocity, input.normalized * playerSpeed, playerAcceleration * Time.deltaTime);
+            Vector3 velocityDirection = Vector3.MoveTowards(playerRigidbody.velocity, input.normalized * (activeSwing ? swingSpeed : playerSpeed), playerAcceleration * Time.deltaTime);
             playerRigidbody.velocity = new Vector3(velocityDirection.x, playerRigidbody.velocity.y, velocityDirection.z);
         }
 
