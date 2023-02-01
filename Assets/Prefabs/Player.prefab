@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 70258159234517781}
   m_Layer: 0
   m_Name: flopsy (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -741,6 +741,7 @@ MonoBehaviour:
   playerSpeed: 10
   playerDeceleration: 20
   playerAcceleration: 35
+  swingSpeed: 20
   cameraMinSpeed: 0
   cameraMaxSpeed: 12
   cameraMaxDistance: 1
@@ -754,8 +755,9 @@ MonoBehaviour:
   directionalPoint: {fileID: 8088693068963944436}
   camera: {fileID: 8088693070201699968}
   cameraXZPivot: {fileID: 5689988515762877612}
-  freeze: 0
+  grappleFreeze: 0
   activeGrapple: 0
+  activeSwing: 0
 --- !u!114 &9176509262565722532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +778,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rootRotationSpeed: 10
+  playerMovement: {fileID: 8088693070341542208}
   HookSpritePrefab: {fileID: 5462417538881126562, guid: d971f01e6d578a34a9e16f8e5ec9103a,
     type: 3}
   rootOrigin: {fileID: 5439102014262165119}
