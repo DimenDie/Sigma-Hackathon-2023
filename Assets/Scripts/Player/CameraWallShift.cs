@@ -8,7 +8,14 @@ public class CameraWallShift : MonoBehaviour
     [SerializeField] float raycastLength;
     RaycastHit hit;
 
+    List<Vector3> raycastDirections;
+
     Vector3 defaultPos, targetPos;
+
+    private void Start()
+    {
+        raycastDirections = new List<Vector3>();
+    }
 
     void Update()
     {
@@ -17,35 +24,42 @@ public class CameraWallShift : MonoBehaviour
 
     void RaycastInit()
     {
+        print(RaycastCheck());
+    }
 
+    bool RaycastCheck() // мама застрели меня за эти макароны
+    {
+        bool nearObstacle = false;
         Vector3 raycastBackDirection = -camera.forward;
         Vector3 raycastSideDirection = -camera.right;
         Vector3 raycastUpDirection = camera.up;
 
-        if(Physics.Raycast(camera.position, raycastBackDirection, out hit, raycastLength))
+        if (Physics.Raycast(camera.position, raycastBackDirection, out hit, raycastLength))
         {
-            print("BackObj = " + hit.transform.gameObject.name);
+            nearObstacle = true;
         }
 
         if (Physics.Raycast(camera.position, raycastSideDirection, out hit, raycastLength))
         {
-            print("LeftObj = " + hit.transform.gameObject.name);
+            nearObstacle = true;
         }
 
         if (Physics.Raycast(camera.position, -raycastSideDirection, out hit, raycastLength))
         {
-            print("RightObj = " + hit.transform.gameObject.name);
+            nearObstacle = true;
         }
 
         if (Physics.Raycast(camera.position, raycastUpDirection, out hit, raycastLength))
         {
-            print("UpObj = " + hit.transform.gameObject.name);
+            nearObstacle = true;
         }
 
         if (Physics.Raycast(camera.position, -raycastUpDirection, out hit, raycastLength))
         {
-            print("DownObj = " + hit.transform.gameObject.name);
+            nearObstacle = true;
         }
+
+        return nearObstacle;
     }
 
 }

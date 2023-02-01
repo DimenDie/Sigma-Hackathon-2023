@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 8088693070341542211}
   - component: {fileID: 8088693070341542208}
   - component: {fileID: 9176509262565722532}
+  - component: {fileID: 2072778266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -741,12 +742,14 @@ MonoBehaviour:
   playerSpeed: 10
   playerDeceleration: 20
   playerAcceleration: 35
+  swingSpeed: 20
   cameraMinSpeed: 0
   cameraMaxSpeed: 12
+  cameraSwingMaxSpeed: 22
   cameraMaxDistance: 1
   cameraSmoothTime: 10
   mouseSensivity: 400
-  cameraMaxAngle: 60
+  cameraMaxAngle: 80
   cameraMinAngle: 20
   centralPoint: {fileID: 8088693069467680799}
   playerPrefab: {fileID: 8088693070341542211}
@@ -754,8 +757,9 @@ MonoBehaviour:
   directionalPoint: {fileID: 8088693068963944436}
   camera: {fileID: 8088693070201699968}
   cameraXZPivot: {fileID: 5689988515762877612}
-  freeze: 0
+  grappleFreeze: 0
   activeGrapple: 0
+  activeSwing: 0
 --- !u!114 &9176509262565722532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,10 +780,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rootRotationSpeed: 10
+  playerMovement: {fileID: 8088693070341542208}
   HookSpritePrefab: {fileID: 5462417538881126562, guid: d971f01e6d578a34a9e16f8e5ec9103a,
     type: 3}
   rootOrigin: {fileID: 5439102014262165119}
   grappleTime: 0.2
+--- !u!114 &2072778266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088693070341542210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26a401f742cc1b4dac68c1f0b90523b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 8088693070201699968}
+  raycastLength: 0.3
 --- !u!1 &8942916014812095442
 GameObject:
   m_ObjectHideFlags: 0
