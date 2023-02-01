@@ -1315,18 +1315,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d532da4783d19954ebc475911293146d, type: 3}
---- !u!114 &888677087 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079067580}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072778263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ee47899ce901f489f473ef84eee594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &965127818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,25 +1626,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+    - target: {fileID: 8088693068699778044, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
-      propertyPath: swingSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-        type: 3}
-      propertyPath: playerSpeed
+      propertyPath: maxDistance
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+    - target: {fileID: 8088693068699778044, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
-      propertyPath: cameraMaxAngle
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 8088693070341542208, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-        type: 3}
-      propertyPath: cameraSwingMaxSpeed
-      value: 22
+      propertyPath: minDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
@@ -1718,11 +1696,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9176509262565722532, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-        type: 3}
-      propertyPath: playerMovement
-      value: 
-      objectReference: {fileID: 888677087}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43283b9ae056eea449e0dd1e3c3f1589, type: 3}
 --- !u!1 &1354439782
@@ -2387,12 +2360,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a7369c943ac514b93b43098a9e7022, type: 3}
---- !u!4 &1990207168 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8088693070201699968, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079067580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2048995602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,23 +2470,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2072778263 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079067580}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2072778266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072778263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26a401f742cc1b4dac68c1f0b90523b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 1990207168}
-  raycastLength: 0.3

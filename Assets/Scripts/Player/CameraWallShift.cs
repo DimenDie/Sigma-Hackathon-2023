@@ -4,62 +4,38 @@ using UnityEngine;
 
 public class CameraWallShift : MonoBehaviour
 {
-    [SerializeField] Transform camera;
-    [SerializeField] float raycastLength;
-    RaycastHit hit;
+	public float minDistance = 1.0f;
+	public float maxDistance = 4.0f;
+	public float smooth = 10.0f;
+	Vector3 dollyDir;
+	public Vector3 dollyDirAdjusted;
+	public float distance;
+	public LayerMask playerMask;
+	public float dis_ray;
 
-    List<Vector3> raycastDirections;
+	// Use this for initialization
+	void Start()
+	{
+		dollyDir = transform.localPosition.normalized;
+		distance = transform.localPosition.magnitude;
+	}
 
-    Vector3 defaultPos, targetPos;
+	// Update is called once per frame
+	void Update()
+	{
 
-    private void Start()
-    {
-        raycastDirections = new List<Vector3>();
-    }
+		Vector3 desiredCameraPos = transform.parent.TransformPoint(dollyDir * maxDistance);
+		RaycastHit hit;
 
-    void Update()
-    {
-        RaycastInit();
-    }
+		if (Physics.Linecast(transform.parent.position, desiredCameraPos, out hit, playerMask))
+		{
+			distance = Mathf.Clamp((hit.distance * dis_ray), minDistance, maxDistance);
+		}
+		else
+		{
+			distance = maxDistance;
+		}
 
-    void RaycastInit()
-    {
-        print(RaycastCheck());
-    }
-
-    bool RaycastCheck() // мама застрели меня за эти макароны
-    {
-        bool nearObstacle = false;
-        Vector3 raycastBackDirection = -camera.forward;
-        Vector3 raycastSideDirection = -camera.right;
-        Vector3 raycastUpDirection = camera.up;
-
-        if (Physics.Raycast(camera.position, raycastBackDirection, out hit, raycastLength))
-        {
-            nearObstacle = true;
-        }
-
-        if (Physics.Raycast(camera.position, raycastSideDirection, out hit, raycastLength))
-        {
-            nearObstacle = true;
-        }
-
-        if (Physics.Raycast(camera.position, -raycastSideDirection, out hit, raycastLength))
-        {
-            nearObstacle = true;
-        }
-
-        if (Physics.Raycast(camera.position, raycastUpDirection, out hit, raycastLength))
-        {
-            nearObstacle = true;
-        }
-
-        if (Physics.Raycast(camera.position, -raycastUpDirection, out hit, raycastLength))
-        {
-            nearObstacle = true;
-        }
-
-        return nearObstacle;
-    }
-
+		transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
+	}
 }

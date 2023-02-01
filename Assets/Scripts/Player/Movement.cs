@@ -45,10 +45,6 @@ public class Movement : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void Start()
-    {
         SetXZPivot();
         playerRigidbody = sphereTransform.GetComponent<Rigidbody>();
         directionalPoint.rotation = Quaternion.Euler(0, camera.rotation.eulerAngles.y, 0);
