@@ -6,9 +6,9 @@ public class Swinging : MonoBehaviour
 {
     public KeyCode swingKey = KeyCode.Mouse0;
 
-    public LineRenderer lineRenderer;
     public Transform shootCenter, camera, player;
     public LayerMask isGrappleable;
+    public float rootRotationSpeed;
 
     private float maxSwingDistance = 30f;
     private Vector3 swingPoint;
@@ -45,7 +45,7 @@ public class Swinging : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, maxSwingDistance, isGrappleable))
         {
-            swingPoint = hit.point;
+            swingPoint = hit.transform.position;
 
             StartCoroutine(StartGrappleAnimation());
 
@@ -60,6 +60,9 @@ public class Swinging : MonoBehaviour
         defautScale.x = 0;
         while (t <= 1)
         {
+
+            if (hookObj == null) yield break;
+
             hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
             hookObj.transform.position = Vector3.Lerp(rootOrigin.position, (rootOrigin.position + swingPoint) / 2, t);
             hookObj.transform.localScale = new Vector3
@@ -81,6 +84,7 @@ public class Swinging : MonoBehaviour
                 (Vector3.Distance(rootOrigin.position, swingPoint) / 2,
                 defautScale.y,
                 defautScale.z);
+
             yield return null;
         }
 
@@ -101,7 +105,6 @@ public class Swinging : MonoBehaviour
         joint.damper = 7f;
         joint.massScale = 4.5f;
 
-        lineRenderer.positionCount = 2;
         currentGrapplePosition = shootCenter.position;
     }
 
@@ -109,7 +112,6 @@ public class Swinging : MonoBehaviour
     void StopSwing()
     {
         Destroy(hookObj);
-        lineRenderer.positionCount = 0;
         Destroy(joint);
     }
 
