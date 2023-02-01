@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     [Header("Camera Values")]
     [SerializeField] float cameraMinSpeed;
     [SerializeField] float cameraMaxSpeed;
+    [SerializeField] float cameraSwingMaxSpeed;
     [SerializeField] float cameraMaxDistance;
     [SerializeField] float cameraSmoothTime;
     [SerializeField] float mouseSensivity;
@@ -107,7 +108,7 @@ public class Movement : MonoBehaviour
     void CameraTracking()
     {
         float pointAndCamDistance = (centralPoint.position - sphereTransform.position).magnitude;
-        float cameraSpeed = Mathf.Lerp(cameraMinSpeed, cameraMaxSpeed, pointAndCamDistance / cameraMaxDistance);
+        float cameraSpeed = Mathf.Lerp(cameraMinSpeed, activeSwing ? cameraSwingMaxSpeed : cameraMaxSpeed, pointAndCamDistance / cameraMaxDistance);
         centralPoint.transform.position = Vector3.SmoothDamp(centralPoint.transform.position, sphereTransform.position, ref cameraVelocity, cameraSmoothTime * Time.deltaTime, cameraSpeed);
     }
 
