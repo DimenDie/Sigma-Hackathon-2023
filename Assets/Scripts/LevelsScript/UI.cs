@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
-        Debug.Log(timeSpan);
+        //Debug.Log(timeSpan);
 
         HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
@@ -28,6 +28,9 @@ public class UI : MonoBehaviour
 
     public void TogglePause()
     {
+        Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !Cursor.visible;
+
         ToggleTime();
 
         pauseMenu.SetActive(!pauseMenu.activeSelf);
