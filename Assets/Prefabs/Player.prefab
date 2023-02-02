@@ -793,12 +793,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ee47899ce901f489f473ef84eee594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  playerDeceleration: 20
+  playerSpeed: 14
+  playerDeceleration: 7
   playerAcceleration: 35
   swingSpeed: 20
   cameraMinSpeed: 0
-  cameraMaxSpeed: 12
+  cameraMaxSpeed: 15
   cameraSwingMaxSpeed: 22
   cameraMaxDistance: 1
   cameraSmoothTime: 10

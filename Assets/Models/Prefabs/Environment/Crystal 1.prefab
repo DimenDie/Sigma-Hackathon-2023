@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442142624884666885}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.77, z: 0}
+  m_LocalPosition: {x: -0.09, y: 4.2, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,8 +45,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9433962, g: 0.73454815, b: 0.28924885, a: 1}
-  m_Intensity: 257.7
-  m_Range: 691.9061
+  m_Intensity: 754
+  m_Range: 91.302185
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 2827518113067964472}
   - component: {fileID: 1194165471896213405}
   - component: {fileID: 3996505288121901911}
+  - component: {fileID: 4630778043187146093}
   m_Layer: 0
   m_Name: Crystal 1
   m_TagString: Untagged
@@ -199,3 +200,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &4630778043187146093
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203902196808041090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3947942
+  m_Height: 6.3492527
+  m_Direction: 1
+  m_Center: {x: 0.07419258, y: 2.711471, z: -0.23164397}

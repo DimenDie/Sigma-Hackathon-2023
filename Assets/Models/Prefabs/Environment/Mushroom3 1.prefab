@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8368739724076258149}
   - component: {fileID: 4867379533768760512}
   - component: {fileID: 7235191870506919946}
+  - component: {fileID: 2396461754198981118}
   m_Layer: 0
   m_Name: Mushroom3 1
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2396461754198981118
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180707533045909983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3750865577328910504, guid: 5e360763cff89c7428055f6f04fa8884, type: 3}
