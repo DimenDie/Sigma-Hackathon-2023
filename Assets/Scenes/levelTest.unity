@@ -664,6 +664,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 68.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3593875839615392614, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: bunny
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593875839615392614, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: lightning
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4529915465581901869, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
         type: 3}
       propertyPath: m_AnchorMax.x
