@@ -1,43 +1,55 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 
 public class Level : MonoBehaviour
 {
-    public int bunny;
-    public int cheetah;
-    public int lightning;
+    public float stopwatch;
+
+    public float bunny;
+    public float cheetah;
+    public float lightning;
 
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
-    public GameObject levelStart;
-    public GameObject levelEnd;
+    GameObject levelStart;
+    GameObject levelEnd;
     public GameObject playerObj;
     public GameObject ghostObj;
 
     public bool levelFinished;
 
     private string saveName;
+    private string saveFolderName;
+    public bool saveExists;
 
-    [HideInInspector] public SaveCoords saveCoords; //coords to write into a save file of ghost replay
-    public SaveCoords loadCoords;
+    [HideInInspector] public SaveInfo infoToSave; //coords to write into a save file of ghost replay
+    public SaveInfo infoToLoad;
 
     
 
     private void Start()
     {
-        playerObj = Instantiate(playerPrefab, levelStart.transform.position, levelStart.transform.rotation);
-        ghostObj = Instantiate(ghostPrefab, levelStart.transform.position, levelStart.transform.rotation);
+        saveFolderName = "GhostReplays";
 
-        if (index < SaveManager.Load<SaveCoords>("GhostReplays", "test").savePositions.Count)
+        levelStart = GameObject.Find("LevelStart"); //Call the police
+        levelEnd = GameObject.Find("LevelEnd");
+
+        playerObj = Instantiate(playerPrefab, levelStart.transform.position, levelStart.transform.rotation);
+
+        saveExists = File.Exists(Application.dataPath + $"/{saveFolderName}/" + SceneManager.GetActiveScene().name + ".json");
+
+        if (saveExists)
         {
-            loadCoords.savePositions = SaveManager.Load<SaveCoords>("GhostReplays", "test").savePositions;
-            loadCoords.saveRotations = SaveManager.Load<SaveCoords>("GhostReplays", "test").saveRotations;
-            index++;
+            ghostObj = Instantiate(ghostPrefab, levelStart.transform.position, levelStart.transform.rotation);
+            infoToLoad.ghostSavePositions = SaveManager.Load<SaveInfo>("GhostReplays", SceneManager.GetActiveScene().name).ghostSavePositions;
+            infoToLoad.ghostSaveRotations = SaveManager.Load<SaveInfo>("GhostReplays", SceneManager.GetActiveScene().name).ghostSaveRotations;
         }
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -55,23 +67,23 @@ public class Level : MonoBehaviour
     int index;
     private void FixedUpdate()
     {
-        if (index < loadCoords.savePositions.Count)
+        if (index < infoToLoad.ghostSavePositions.Count && saveExists)
         {
-            ghostObj.transform.position = loadCoords.savePositions[index];
-            ghostObj.transform.rotation = loadCoords.saveRotations[index];
+            ghostObj.transform.position = infoToLoad.ghostSavePositions[index];
+            ghostObj.transform.rotation = infoToLoad.ghostSaveRotations[index];
             index++;
         }
-        //Debug.Log(playerObj.transform.GetChild(0).position);
+
         if (!levelFinished)
         {
-            saveCoords.savePositions.Add(playerObj.transform.GetChild(0).position);
-            saveCoords.saveRotations.Add(playerObj.transform.GetChild(0).rotation);
+            infoToSave.ghostSavePositions.Add(playerObj.transform.GetChild(0).position);
+            infoToSave.ghostSaveRotations.Add(playerObj.transform.GetChild(0).rotation);
         }
     }
 
     public string CheckMedal()
     {
-        float stopwatch = Time.timeSinceLevelLoad;
+        stopwatch = Time.timeSinceLevelLoad;
 
         if (stopwatch < lightning)
             return "lightning";
@@ -96,8 +108,11 @@ public class Level : MonoBehaviour
 }
 
 [Serializable]
-public struct SaveCoords
+public struct SaveInfo
 {
-    public List<Vector3> savePositions;
-    public List<Quaternion> saveRotations;
+    public string name;
+    public float record;
+    public string medal;
+    public List<Vector3> ghostSavePositions;
+    public List<Quaternion> ghostSaveRotations;
 }

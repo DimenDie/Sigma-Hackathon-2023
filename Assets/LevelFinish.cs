@@ -4,29 +4,36 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelFinish : MonoBehaviour
 {
     public GameObject UIManager;
-    public GameObject ResultPanel;
+    public GameObject resultMedal;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Finish!!");
 
+            var currentLevel = UIManager.GetComponent<Level>();
 
-            UIManager.GetComponent<Level>().levelFinished = true;
+            currentLevel.levelFinished = true;
 
-            SaveManager.Save("GhostReplays", "test", UIManager.GetComponent<Level>().saveCoords);
+            currentLevel.infoToSave.name = SceneManager.GetActiveScene().name;
+            currentLevel.infoToSave.record = currentLevel.stopwatch;
+            currentLevel.infoToSave.medal = currentLevel.CheckMedal();
+
+            if (!currentLevel.saveExists || currentLevel.stopwatch < SaveManager.Load<SaveInfo>("GhostReplays", SceneManager.GetActiveScene().name).record)
+            {
+                SaveManager.Save("GhostReplays", SceneManager.GetActiveScene().name, currentLevel.infoToSave);
+            }
 
             UIManager.GetComponent<UI>().TogglePause();
-            ResultPanel.SetActive(true);
-            ResultPanel.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
 
-
-
+            resultMedal.SetActive(true);
+            resultMedal.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
         }
     }
 }

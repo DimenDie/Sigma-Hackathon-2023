@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8882761490743029692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8882761490743029694}
+  - component: {fileID: 8882761490743029693}
+  - component: {fileID: 8882761490743029688}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8882761490743029694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882761490743029692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -799.6317, y: -429.72992, z: 20.392704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8882761490743029693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882761490743029692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cff85af069cad849a4b451b1f4401ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 7513899196957276027, guid: b515db956349f544dab5d1561c610ca9,
+    type: 3}
+  HUDMedal: {fileID: 7614059896896200346, guid: eb4229b1aec2ac74dbb9c1b491baa9e2,
+    type: 3}
+  HUDSlider: {fileID: 8392622377094751808, guid: 7659d6cad8dd0ad4ba4a01704b5576a5,
+    type: 3}
+--- !u!114 &8882761490743029688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882761490743029692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1115f778c400dea498ba88c8e344f359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopwatch: 0
+  bunny: 4
+  cheetah: 8
+  lightning: 9
+  playerPrefab: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
+    type: 3}
+  ghostPrefab: {fileID: 8088693070341542210, guid: f7558eb1886081a48b6cb01a679c6672,
+    type: 3}
+  levelStart: {fileID: 6495080634495525005, guid: ee80b8260255a96468b321812ccec65c,
+    type: 3}
+  levelEnd: {fileID: 4735907295786905637, guid: 8ace018800455ff4fb3dd7e1e06523eb,
+    type: 3}
+  playerObj: {fileID: 0}
+  ghostObj: {fileID: 0}
+  levelFinished: 0
+  saveExists: 0
+  infoToSave:
+    name: 
+    record: 0
+    medal: 
+    ghostSavePositions: []
+    ghostSaveRotations: []
+  infoToLoad:
+    name: 
+    record: 0
+    medal: 
+    ghostSavePositions: []
+    ghostSaveRotations: []
