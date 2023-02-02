@@ -11,9 +11,23 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject HUDMedal;
     [SerializeField] private GameObject HUDSlider;
 
+    Level level;
+    Slider slider;
+
+    List<float> timeValues = new List<float>();
+
+
     private void Start()
     {
+        level = GetComponent<Level>();
+        slider = HUDSlider.GetComponent<Slider>();
+
         Time.timeScale = 1.0f;
+
+        timeValues.Add(level.lightning);
+        timeValues.Add(level.cheetah);
+        timeValues.Add(level.bunny);
+
     }
     void Update()
     {
@@ -21,16 +35,10 @@ public class UI : MonoBehaviour
 
         HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
-        Debug.Log(HUDSlider.GetComponent<Slider>().value);
+        Debug.Log(level.stopwatch);
 
-        if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().lightning)
-            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().lightning - this.GetComponent<Level>().stopwatch) / this.GetComponent<Level>().lightning;
-        else if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().cheetah)
-            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().cheetah - this.GetComponent<Level>().lightning - this.GetComponent<Level>().stopwatch) / this.GetComponent<Level>().cheetah;
-        else if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().bunny)
-            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().bunny - this.GetComponent<Level>().stopwatch - this.GetComponent<Level>().lightning - this.GetComponent<Level>().cheetah) / this.GetComponent<Level>().bunny;
-        else
-            HUDSlider.SetActive(false);
+
+        CheckTimeValue();
 
 
         if (Input.GetKeyDown(KeyCode.B)) //Change to escape later
@@ -39,6 +47,32 @@ public class UI : MonoBehaviour
         }
 
     }
+
+
+    void CheckTimeValue()
+    {
+        float timeValue = -1;
+        int timeValueInd = -1;
+        for (int i = 0; i < timeValues.Count; i++)
+        {
+            if(level.stopwatch <= timeValues[i])
+            {
+                timeValue = timeValues[i];
+                timeValueInd = i;
+                break;
+            }
+        }
+
+        if (timeValueInd == -1) return;
+
+        if(timeValueInd > 0)
+            slider.value = Mathf.Lerp(1, 0, (level.stopwatch - timeValues[timeValueInd-1]) / (timeValue - timeValues[timeValueInd - 1]));
+
+        else
+            slider.value = Mathf.Lerp(1, 0, level.stopwatch / timeValue);
+    }
+
+
 
     public void TogglePause()
     {
