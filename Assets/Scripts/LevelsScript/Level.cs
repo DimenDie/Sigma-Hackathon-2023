@@ -36,6 +36,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        
         saveFolderName = "GhostReplays";
 
         levelStart = GameObject.Find("LevelStart"); //Call the police

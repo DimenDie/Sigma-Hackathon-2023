@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
     }
     void Update()
     {
@@ -20,12 +21,14 @@ public class UI : MonoBehaviour
 
         HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
+        Debug.Log(HUDSlider.GetComponent<Slider>().value);
+
         if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().lightning)
-            HUDSlider.GetComponent<Slider>().value = this.GetComponent<Level>().stopwatch / this.GetComponent<Level>().lightning;
+            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().lightning - this.GetComponent<Level>().stopwatch) / this.GetComponent<Level>().lightning;
         else if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().cheetah)
-            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().stopwatch - this.GetComponent<Level>().lightning) / (this.GetComponent<Level>().cheetah - this.GetComponent<Level>().lightning);
+            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().cheetah - this.GetComponent<Level>().lightning - this.GetComponent<Level>().stopwatch) / this.GetComponent<Level>().cheetah;
         else if (this.GetComponent<Level>().stopwatch < this.GetComponent<Level>().bunny)
-            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().stopwatch - this.GetComponent<Level>().cheetah) / (this.GetComponent<Level>().bunny - this.GetComponent<Level>().cheetah);
+            HUDSlider.GetComponent<Slider>().value = (this.GetComponent<Level>().bunny - this.GetComponent<Level>().stopwatch - this.GetComponent<Level>().lightning - this.GetComponent<Level>().cheetah) / this.GetComponent<Level>().bunny;
         else
             HUDSlider.SetActive(false);
 
