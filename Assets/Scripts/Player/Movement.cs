@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
     [SerializeField] float groundDistance;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] float landingTimeCap;
 
 
     [Space(10)]
@@ -47,6 +48,9 @@ public class Movement : MonoBehaviour
     public bool activeSwing;
     private Vector3 velocityToSet;
 
+    bool landingMemory;
+    [SerializeField]float notGroundedTime;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -60,7 +64,7 @@ public class Movement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-
+        LandingCheck();
 
         if (grappleFreeze) //Currently instead of grapple swinging is used
         {
@@ -71,6 +75,16 @@ public class Movement : MonoBehaviour
         CameraTracking();
         CameraRotation();
 
+    }
+
+    void LandingCheck()
+    {
+        if (isGrounded && !landingMemory && notGroundedTime >= landingTimeCap)
+            FindObjectOfType<AudioManager>().PlaySound("Landing");
+
+        landingMemory = isGrounded;
+
+        notGroundedTime = isGrounded ? 0 : notGroundedTime + Time.deltaTime;
     }
 
     void SetXZPivot()
