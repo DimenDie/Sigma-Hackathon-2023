@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("Movement Values")]
-    [SerializeField] float playerSpeed;
+    public float playerSpeed;
     [SerializeField] float playerDeceleration;
     [SerializeField] float playerAcceleration;
     [SerializeField] float swingSpeed;
@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
 
     //Other
     Vector3 cameraVelocity;
-    Rigidbody playerRigidbody;
+    [HideInInspector] public Rigidbody playerRigidbody;
     [HideInInspector] public bool grappleFreeze;
     [HideInInspector] public bool activeGrapple;
     public bool activeSwing;
