@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1592099881867858047}
-  - component: {fileID: 2113198422400731846}
   m_Layer: 0
   m_Name: Pendulum
   m_TagString: Untagged
@@ -57,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2113198422400731845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 14.05, z: 28.65}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 1.7000008, y: 1.7, z: 1.7000008}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 573565405686920101}
@@ -65,49 +64,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2113198422400731846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113198422400731845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c645a53236abe84ba514ca08ae13125, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 77
-  cycleTime: 0.7
-  cycleDelay: 0.7
-  handleSize: 1.27
-  axePoint: {fileID: 1266354912137739879}
-  axeObject: {fileID: 573565405686920101}
-  axeHandle: {fileID: 586891247663982526}
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &4031126873425013145
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +75,7 @@ GameObject:
   - component: {fileID: 586891247663982526}
   - component: {fileID: 7955233978801089041}
   - component: {fileID: 9144823844933733499}
+  - component: {fileID: 9220086914600993202}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -133,15 +90,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031126873425013145}
-  m_LocalRotation: {x: -0.3482535, y: -0, z: -0, w: 0.9374004}
-  m_LocalPosition: {x: 0, y: 1.4, z: 14.93}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1266354912137739879}
   m_Father: {fileID: 1592099881867858047}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -40.761, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7955233978801089041
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -193,6 +150,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9220086914600993202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031126873425013145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27301046, y: 6.867608, z: 0.27301046}
+  m_Center: {x: 0, y: -3.3239913, z: 0}
 --- !u!1 &4099981254605835148
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +174,8 @@ GameObject:
   - component: {fileID: 573565405686920101}
   - component: {fileID: 940631555243582226}
   - component: {fileID: 1612191890028789079}
+  - component: {fileID: 2987276537876832301}
+  - component: {fileID: 2987276537876832302}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -278,6 +250,62 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2987276537876832301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099981254605835148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6912272, y: 3.5785975, z: 3.5785973}
+  m_Center: {x: 0, y: -1.6997142, z: 0}
+--- !u!114 &2987276537876832302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099981254605835148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c645a53236abe84ba514ca08ae13125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 77
+  cycleTime: 0.7
+  cycleDelay: 1.7
+  handleSize: 1
+  axePoint: {fileID: 1266354912137739879}
+  axeObject: {fileID: 573565405686920101}
+  axeHandle: {fileID: 586891247663982526}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6403443183591387509
 GameObject:
   m_ObjectHideFlags: 0

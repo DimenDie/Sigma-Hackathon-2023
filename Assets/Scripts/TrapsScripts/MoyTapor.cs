@@ -36,12 +36,12 @@ public class MoyTapor : MonoBehaviour
             while (t <= 1)
             {
                 xRot = Mathf.Lerp(currentAngle, targetAngle, curve.Evaluate(t));
-                axeHandle.transform.rotation = Quaternion.Euler(xRot, 0,0);
+                axeHandle.transform.localRotation = Quaternion.Euler(xRot, 0,0);
                 t += Time.deltaTime / cycleTime;
                 yield return null;
             }
 
-            axeHandle.transform.rotation = Quaternion.Euler(targetAngle, 0, 0);
+            axeHandle.transform.localRotation = Quaternion.Euler(targetAngle, 0, 0);
 
             float savedTargetRot = targetAngle;
             targetAngle = currentAngle;

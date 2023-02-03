@@ -841,7 +841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8088693070201699997}
   m_LocalRotation: {x: 0.2058463, y: 0.30169207, z: -0.06688351, w: 0.9285127}
-  m_LocalPosition: {x: -3.59, y: 4.7, z: -4.92}
+  m_LocalPosition: {x: -3.59, y: 6.66, z: -4.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1013,14 +1013,15 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 247
+  landingTimeCap: 0.5
   cameraMinSpeed: 0
   cameraMaxSpeed: 15
   cameraSwingMaxSpeed: 22
   cameraMaxDistance: 1
   cameraSmoothTime: 10
   mouseSensivity: 400
-  cameraMaxAngle: 80
-  cameraMinAngle: 20
+  cameraMaxAngle: 100
+  cameraMinAngle: 10
   centralPoint: {fileID: 8088693069467680799}
   playerPrefab: {fileID: 8088693070341542211}
   sphereTransform: {fileID: 742493584082934703}
@@ -1032,6 +1033,7 @@ MonoBehaviour:
   grappleFreeze: 0
   activeGrapple: 0
   activeSwing: 0
+  notGroundedTime: 0
 --- !u!114 &9176509262565722532
 MonoBehaviour:
   m_ObjectHideFlags: 0
