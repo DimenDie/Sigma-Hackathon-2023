@@ -9,11 +9,17 @@ public class ShaderBehaviour : MonoBehaviour
     [SerializeField] float defaultThiccness;
     [SerializeField] AnimationCurve curve;
     bool duringDissolve, onoff;
-    
+
+    float defaultLightIntensity;
+
+    PlayerPointLight pointLightPulse;
+    Light light;
 
     private void Start()
     {
-
+        pointLightPulse = FindObjectOfType<PlayerPointLight>();
+        light = pointLightPulse.GetComponent<Light>();
+        defaultLightIntensity = pointLightPulse.defaultIntensity;
     }
 
     private void Update()
@@ -28,9 +34,14 @@ public class ShaderBehaviour : MonoBehaviour
     IEnumerator DissolveSwitch( bool on )
     {
         float t = 0;
-        float startValue = on ? 0 : 1f;
-        float targetValue = on ? 1f : 0;
+        float startValue = on ? 0 : 1;
+        float targetValue = on ? 1 : 0;
+        
         float value;
+
+        float startLightIntensity = on ? defaultLightIntensity : 0;
+        float targetLightIntensity = on ? 0 : defaultLightIntensity;
+
 
         sphereMaterial.SetFloat("_Thiccness", defaultThiccness);
         rootsMaterial.SetFloat("_Thiccness", defaultThiccness);
@@ -45,12 +56,17 @@ public class ShaderBehaviour : MonoBehaviour
             value = Mathf.Lerp(startValue, targetValue, curve.Evaluate(t));
             sphereMaterial.SetFloat("_DissolveStatus", value);
             rootsMaterial.SetFloat("_DissolveStatus", value);
+
+            light.intensity = Mathf.Lerp(startLightIntensity, targetLightIntensity, curve.Evaluate(t));
+
             t += Time.deltaTime / dissolveSpeed;
             yield return null;
         }
 
+        pointLightPulse.canPulse = !on;
         sphereMaterial.SetFloat("_DissolveStatus", targetValue);
         rootsMaterial.SetFloat("_DissolveStatus", targetValue);
+        light.intensity = targetLightIntensity;
 
         t = 0;
 
@@ -67,6 +83,7 @@ public class ShaderBehaviour : MonoBehaviour
         rootsMaterial.SetFloat("_Thiccness", 0);
 
         duringDissolve = false;
-    }
 
+
+    }
 }
