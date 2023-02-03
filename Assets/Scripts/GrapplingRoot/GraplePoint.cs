@@ -5,12 +5,17 @@ using UnityEngine;
 public class GraplePoint : MonoBehaviour
 {
     private Color startColor;
-    void OnMouseEnter()
+
+    private void Start()
     {
         startColor = gameObject.GetComponent<Renderer>().material.color;
+    }
+
+    public void SetColor()
+    {
         gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
-    void OnMouseExit()
+    public void ReturnColor()
     {
         gameObject.GetComponent<Renderer>().material.color = startColor;
     }

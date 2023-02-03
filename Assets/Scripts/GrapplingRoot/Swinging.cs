@@ -21,6 +21,8 @@ public class Swinging : MonoBehaviour
 
     GameObject hookObj;
 
+    GraplePoint currentGrapplePoint, previousGrapplePoint;
+
     [Space(10)]
     [Header("RootPrefab")]
     [SerializeField] GameObject HookSpritePrefab;
@@ -37,14 +39,40 @@ public class Swinging : MonoBehaviour
     {
         rootOrigin.position = player.position;
         shootCenter.eulerAngles = Vector3.zero;
+
+        GrapplePointCheck();
+
         if (Input.GetKeyDown(swingKey)) StartSwing();
         if (Input.GetKeyUp(swingKey)) StopSwing();
+    }
+
+    void GrapplePointCheck()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, maxSwingDistance, isGrappleable))
+        {
+            if (currentGrapplePoint != null && currentGrapplePoint.transform.position != hit.transform.position)
+                currentGrapplePoint.ReturnColor();
+
+            currentGrapplePoint = hit.transform.GetComponent<GraplePoint>();
+            currentGrapplePoint.SetColor();
+        }
+        else
+        {
+            if(currentGrapplePoint != null)
+                currentGrapplePoint.ReturnColor();
+
+            currentGrapplePoint = null;
+        }
     }
 
     void StartSwing()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (Physics.Raycast(ray, out hit, maxSwingDistance, isGrappleable))
         {
             playerMovement.activeSwing = true;
