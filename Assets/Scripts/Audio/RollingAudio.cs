@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class RollingAudio : MonoBehaviour
 {
+    BallAudioSourceHolder ball;
+
+    AudioSource rollingSource;
+    AudioSource flyingSource;
     
-    [SerializeField]AudioSource audioSource;
     Movement movement;
 
-    [SerializeField] float soundDecreaseSpeed;
+    [SerializeField] float rollingVolumeDecreaseSpeed;
+    [SerializeField] float flyingVolumeDecreaseSpeed;
     [Range(0.0f, 1.0f)]
-    [SerializeField]float maximumVolume;
+    [SerializeField]float maximumRollingVolume;
+    [Range(0.0f, 1.0f)]
+    [SerializeField]float maximumFlingVolume;
 
     private void Start()
     {
+        ball = FindObjectOfType<BallAudioSourceHolder>();
+        rollingSource = ball.rollingSource;
+        flyingSource = ball.flyingSource;
+
         movement = GetComponent<Movement>();
     }
 
@@ -25,9 +35,13 @@ public class RollingAudio : MonoBehaviour
     void SoundRegulator()
     {
         if (movement.isGrounded && movement.playerRigidbody.velocity.magnitude > 0)
-            audioSource.volume = Mathf.Lerp(0, maximumVolume, movement.playerRigidbody.velocity.magnitude / movement.playerSpeed);
+            rollingSource.volume = Mathf.Lerp(0, maximumRollingVolume, movement.playerRigidbody.velocity.magnitude / movement.playerSpeed);
         else
-            audioSource.volume = Mathf.MoveTowards(audioSource.volume, 0, soundDecreaseSpeed);
+            rollingSource.volume = Mathf.MoveTowards(rollingSource.volume, 0, rollingVolumeDecreaseSpeed * Time.deltaTime);
 
+        if(movement.activeSwing && movement.playerRigidbody.velocity.magnitude > 0)
+            flyingSource.volume = Mathf.Lerp(0, maximumFlingVolume, movement.playerRigidbody.velocity.magnitude / movement.swingSpeed);
+        else
+            flyingSource.volume = Mathf.MoveTowards(flyingSource.volume, 0, flyingVolumeDecreaseSpeed * Time.deltaTime);
     }
 }

@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     public float playerSpeed;
     [SerializeField] float playerDeceleration;
     [SerializeField] float playerAcceleration;
-    [SerializeField] float swingSpeed;
+    public float swingSpeed;
     public bool isGrounded;
     [SerializeField] float groundDistance;
     [SerializeField] LayerMask groundMask;
