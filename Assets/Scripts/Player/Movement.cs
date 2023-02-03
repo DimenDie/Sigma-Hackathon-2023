@@ -108,14 +108,15 @@ public class Movement : MonoBehaviour
                 (Input.GetAxisRaw("Vertical") * directionalPoint.forward +
                 Input.GetAxisRaw("Horizontal") * directionalPoint.right);
 
-        if (playerRigidbody.velocity.magnitude < 0.35f)
+        if (playerRigidbody.velocity.magnitude < 0.35f && isGrounded)
             playerRigidbody.angularVelocity = Vector3.zero;
 
         
         if (input.magnitude == 0)
         {
             playerRigidbody.velocity = Vector3.MoveTowards(playerRigidbody.velocity, new Vector3(0, playerRigidbody.velocity.y, 0), playerDeceleration * Time.deltaTime);
-            playerRigidbody.angularVelocity = Vector3.MoveTowards(playerRigidbody.angularVelocity, Vector3.zero, playerDeceleration * Time.deltaTime);
+            if(isGrounded)
+                playerRigidbody.angularVelocity = Vector3.MoveTowards(playerRigidbody.angularVelocity, Vector3.zero, playerDeceleration * Time.deltaTime);
         }
         else
         {
