@@ -1071,7 +1071,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rootRotationSpeed: 10
-  maxSwingDistance: 35
+  maxSwingDistance: 50
   playerMovement: {fileID: 8088693070341542208}
   HookSpritePrefab: {fileID: 5462417538881126562, guid: d971f01e6d578a34a9e16f8e5ec9103a,
     type: 3}
