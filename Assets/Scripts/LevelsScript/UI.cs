@@ -35,7 +35,6 @@ public class UI : MonoBehaviour
 
         HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
-        Debug.Log(level.stopwatch);
 
 
         CheckTimeValue();

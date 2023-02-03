@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 2064162785611715206}
   - component: {fileID: 3101496389846736163}
   - component: {fileID: 931767665694370281}
+  - component: {fileID: -5757174927072596270}
   m_Layer: 0
   m_Name: Crystal2
   m_TagString: Untagged
@@ -199,3 +200,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &-5757174927072596270
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724511082712123452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4094081
+  m_Height: 5.6480403
+  m_Direction: 1
+  m_Center: {x: 0.0033738613, y: 1.8177011, z: 0.19046402}
