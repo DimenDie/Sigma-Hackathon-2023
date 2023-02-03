@@ -1560,11 +1560,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8088693070201699969, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-        type: 3}
-      propertyPath: m_Antialiasing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
         type: 3}
       propertyPath: m_Name
@@ -1625,7 +1620,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 682643896134313247, guid: 43283b9ae056eea449e0dd1e3c3f1589, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 43283b9ae056eea449e0dd1e3c3f1589, type: 3}
 --- !u!1 &1354439782
 GameObject:
@@ -2084,52 +2080,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1707726736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8088693070341542210, guid: 43283b9ae056eea449e0dd1e3c3f1589,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079067580}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1707726741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707726736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6a2ebbfe47b3a4b9591d7176aea0f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sphereMaterial: {fileID: 2100000, guid: 52d70b2421d06c4478030cd026edbeb6, type: 2}
-  rootsMaterial: {fileID: 2100000, guid: 29d6343a98983924db0fbfd3e710fd8c, type: 2}
-  dissolveSpeed: 2
-  defaultThiccness: 0.05
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1793218817
 PrefabInstance:
   m_ObjectHideFlags: 0

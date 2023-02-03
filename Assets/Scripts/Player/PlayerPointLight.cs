@@ -8,9 +8,11 @@ public class PlayerPointLight : MonoBehaviour
     [SerializeField] float pulseSpeed, pulsePower;
     public float defaultIntensity;
     float targetIntensity;
+    [HideInInspector] public float timer;
     public bool canPulse = false;
     private void Start()
     {
+        timer = 0;
         light = GetComponent<Light>();
     }
 
@@ -18,8 +20,9 @@ public class PlayerPointLight : MonoBehaviour
     {
         if(canPulse)
         {
+            timer += Time.deltaTime;
             targetIntensity = defaultIntensity + Mathf.Sin(Time.time * pulseSpeed) * pulsePower;
-            light.intensity = Mathf.MoveTowards(light.intensity, targetIntensity, 0.1f);
+            light.intensity = Mathf.MoveTowards(light.intensity, targetIntensity, 0.05f);
         }
             
     }

@@ -64,6 +64,7 @@ public class ShaderBehaviour : MonoBehaviour
         }
 
         pointLightPulse.canPulse = !on;
+
         sphereMaterial.SetFloat("_DissolveStatus", targetValue);
         rootsMaterial.SetFloat("_DissolveStatus", targetValue);
         light.intensity = targetLightIntensity;
@@ -79,6 +80,8 @@ public class ShaderBehaviour : MonoBehaviour
             yield return null;
         }
 
+
+        pointLightPulse.timer = 0;
         sphereMaterial.SetFloat("_Thiccness", 0);
         rootsMaterial.SetFloat("_Thiccness", 0);
 
