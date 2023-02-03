@@ -10,7 +10,7 @@ public class Swinging : MonoBehaviour
     public LayerMask isGrappleable;
     public float rootRotationSpeed;
 
-    private float maxSwingDistance = 30f;
+    public float maxSwingDistance;
     private Vector3 swingPoint;
     private SpringJoint joint;
 
@@ -77,7 +77,7 @@ public class Swinging : MonoBehaviour
         {
             playerMovement.activeSwing = true;
 
-            swingPoint = hit.transform.position;
+            swingPoint = hit.transform.GetComponent<GraplePoint>().hookPivo.position;
 
             StartCoroutine(StartGrappleAnimation());
 

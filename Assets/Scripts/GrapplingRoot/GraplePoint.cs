@@ -5,6 +5,7 @@ using UnityEngine;
 public class GraplePoint : MonoBehaviour
 {
     private Color startColor;
+    public Transform hookPivo;
 
     private void Start()
     {
