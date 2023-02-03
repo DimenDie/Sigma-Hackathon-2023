@@ -1093,6 +1093,21 @@ MonoBehaviour:
   - nameOfSound: tututu
     audioClip: {fileID: 8300000, guid: eafee29e29e542a40986f17ef87152de, type: 3}
     volume: 1
+  - nameOfSound: FlyingOnHook
+    audioClip: {fileID: 8300000, guid: 1611b8f3ea78b71419cfd3f23dedde6d, type: 3}
+    volume: 0.5
+  - nameOfSound: HookFire
+    audioClip: {fileID: 8300000, guid: cb331e12d1a867c46aa416e933028195, type: 3}
+    volume: 0.5
+  - nameOfSound: HookLanded
+    audioClip: {fileID: 8300000, guid: a8060c08160b9ff4ba4836c1718e36f7, type: 3}
+    volume: 0.5
+  - nameOfSound: HookUnhook
+    audioClip: {fileID: 8300000, guid: 4d6f04d43828a72428ad7276767dbd57, type: 3}
+    volume: 0.5
+  - nameOfSound: Landing
+    audioClip: {fileID: 8300000, guid: 220c29202feb30b4790b7dd267675325, type: 3}
+    volume: 0.5
 --- !u!82 &332034814848979070
 AudioSource:
   m_ObjectHideFlags: 0

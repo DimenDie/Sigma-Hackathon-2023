@@ -61,6 +61,7 @@ public class Movement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
 
+
         if (grappleFreeze) //Currently instead of grapple swinging is used
         {
             playerRigidbody.velocity = Vector3.zero;

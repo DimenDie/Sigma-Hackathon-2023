@@ -77,7 +77,9 @@ public class Swinging : MonoBehaviour
         {
             playerMovement.activeSwing = true;
 
-            swingPoint = hit.transform.GetComponent<GraplePoint>().hookPivo.position;
+            if (hit.transform.GetComponent<GraplePoint>().hookPivo != null)
+                swingPoint = hit.transform.GetComponent<GraplePoint>().hookPivo.position;
+            else swingPoint = hit.transform.position;
 
             StartCoroutine(StartGrappleAnimation());
 
@@ -90,6 +92,9 @@ public class Swinging : MonoBehaviour
         float t = 0;
         Vector3 defautScale = hookObj.transform.localScale;
         defautScale.x = 0;
+
+        FindObjectOfType<AudioManager>().PlaySound("HookFire");
+
         while (t <= 1)
         {
 
@@ -105,6 +110,7 @@ public class Swinging : MonoBehaviour
             t += Time.deltaTime / grappleTime;
             yield return null;
         }
+
 
         CreateJoint();
 
@@ -124,6 +130,8 @@ public class Swinging : MonoBehaviour
 
     void CreateJoint()
     {
+        FindObjectOfType<AudioManager>().PlaySound("HookLanded");
+
         joint = player.gameObject.AddComponent<SpringJoint>();
         joint.autoConfigureConnectedAnchor = false;
         joint.connectedAnchor = swingPoint;
@@ -143,6 +151,10 @@ public class Swinging : MonoBehaviour
 
     void StopSwing()
     {
+        
+        if(joint != null)
+            FindObjectOfType<AudioManager>().PlaySound("HookUnhook");
+
         playerMovement.activeSwing = false;
         Destroy(hookObj);
         Destroy(joint);
