@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 2987276537876832302}
   m_Layer: 0
   m_Name: Trap
-  m_TagString: Untagged
+  m_TagString: DeathBringer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,7 +258,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4099981254605835148}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6912272, y: 3.5785975, z: 3.5785973}

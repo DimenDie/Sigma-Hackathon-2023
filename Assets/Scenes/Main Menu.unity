@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &103468844
 Transform:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexOfPreviousLevelScene: 0
+  sceneToUnlock: 0
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: a987e8eb4e981554392d7970b6763d12, type: 3}
   unlocked: {fileID: 21300000, guid: 052036d4a589f314cb4f5a046f24b176, type: 3}
@@ -970,7 +970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1465173141
 Transform:
   m_ObjectHideFlags: 0
@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexOfPreviousLevelScene: 1
+  sceneToUnlock: 1
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: a987e8eb4e981554392d7970b6763d12, type: 3}
   unlocked: {fileID: 21300000, guid: 052036d4a589f314cb4f5a046f24b176, type: 3}
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexOfPreviousLevelScene: 2
+  sceneToUnlock: 2
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: a987e8eb4e981554392d7970b6763d12, type: 3}
   unlocked: {fileID: 21300000, guid: 052036d4a589f314cb4f5a046f24b176, type: 3}

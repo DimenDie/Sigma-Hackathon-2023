@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonIconUpdater : MonoBehaviour
 {
-    public int indexOfPreviousLevelScene;
+    public int sceneToUnlock;
     public GameObject MainMenu;
 
     public Sprite locked;
@@ -17,14 +17,15 @@ public class ButtonIconUpdater : MonoBehaviour
     public Sprite diamond;
     void Start()
     {
-        int indexOfCurrentLevelScene = indexOfPreviousLevelScene + 1;
-        if (indexOfPreviousLevelScene == 0 || MainMenu.GetComponent<MainMenu>().CheckSave(indexOfPreviousLevelScene))
+        this.GetComponent<Button>().interactable = false;
+        int levelScene = sceneToUnlock + 1;
+        if (sceneToUnlock == 0 || MainMenu.GetComponent<MainMenu>().CheckSave(sceneToUnlock))
         {
             this.GetComponent<Button>().interactable = true;
             this.GetComponent<Image>().sprite = unlocked;
         }
 
-        if (!MainMenu.GetComponent<MainMenu>().CheckSave(indexOfCurrentLevelScene)) return;
+        if (!MainMenu.GetComponent<MainMenu>().CheckSave(levelScene)) return;
 
         if (SaveManager.Load<SaveInfo>(MainMenu.GetComponent<MainMenu>().folderName, MainMenu.GetComponent<MainMenu>().sceneName).medal == "lightning")
             this.GetComponent<Image>().sprite = diamond;
