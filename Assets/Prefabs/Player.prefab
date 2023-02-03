@@ -534,7 +534,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2352844992256197562}
   m_Father: {fileID: 8088693070341542211}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -647,8 +648,8 @@ Camera:
   m_GameObject: {fileID: 8088693070201699997}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -797,6 +798,13 @@ MonoBehaviour:
   playerDeceleration: 7
   playerAcceleration: 35
   swingSpeed: 20
+  deltaGravitation: 0.15
+  isGrounded: 0
+  groundDistance: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 247
+  gravity: 0
   cameraMinSpeed: 0
   cameraMaxSpeed: 15
   cameraSwingMaxSpeed: 22
@@ -811,6 +819,7 @@ MonoBehaviour:
   directionalPoint: {fileID: 8088693068963944436}
   camera: {fileID: 8088693070201699968}
   cameraXZPivot: {fileID: 5689988515762877612}
+  groundCheck: {fileID: 2352844992256197562}
   grappleFreeze: 0
   activeGrapple: 0
   activeSwing: 0
@@ -1067,3 +1076,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &9100831484588481027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2352844992256197562}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2352844992256197562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100831484588481027}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5439102014262165119}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

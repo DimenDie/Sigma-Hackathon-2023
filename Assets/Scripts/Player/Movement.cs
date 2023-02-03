@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float playerDeceleration;
     [SerializeField] float playerAcceleration;
     [SerializeField] float swingSpeed;
+    public bool isGrounded;
+    [SerializeField] float groundDistance;
+    [SerializeField] LayerMask groundMask;
+
 
     [Space(10)]
 
@@ -21,6 +25,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float mouseSensivity;
     [SerializeField] float cameraMaxAngle;
     [SerializeField] float cameraMinAngle;
+
     float Xinput = 0;
 
     [Space(10)]
@@ -32,6 +37,7 @@ public class Movement : MonoBehaviour
     [SerializeField] Transform directionalPoint;
     [SerializeField] Transform camera;
     [SerializeField] Transform cameraXZPivot;
+    [SerializeField] Transform groundCheck;
 
     //Other
     Vector3 cameraVelocity;
@@ -52,6 +58,9 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
         if (grappleFreeze) //Currently instead of grapple swinging is used
         {
             playerRigidbody.velocity = Vector3.zero;
@@ -144,5 +153,11 @@ public class Movement : MonoBehaviour
     private void SetVelocity()
     {
         playerRigidbody.velocity = velocityToSet;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.transform.position, groundDistance);
     }
 }
