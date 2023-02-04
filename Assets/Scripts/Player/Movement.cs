@@ -136,7 +136,7 @@ public class Movement : MonoBehaviour
     {
         float pointAndCamDistance = (centralPoint.position - sphereTransform.position).magnitude;
         float cameraSpeed = Mathf.Lerp(cameraMinSpeed, activeSwing ? cameraSwingMaxSpeed : cameraMaxSpeed, pointAndCamDistance / cameraMaxDistance);
-        centralPoint.transform.position = Vector3.SmoothDamp(centralPoint.transform.position, sphereTransform.position, ref cameraVelocity, cameraSmoothTime, cameraSpeed * Time.deltaTime);
+        centralPoint.transform.position = Vector3.MoveTowards(centralPoint.transform.position, sphereTransform.position, cameraSpeed * Time.deltaTime);
     }
 
     public Vector3 CalculateGrappleVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)

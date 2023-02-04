@@ -240,7 +240,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1611b8f3ea78b71419cfd3f23dedde6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -1034,9 +1034,9 @@ MonoBehaviour:
     m_Bits: 247
   landingTimeCap: 0.5
   cameraMinSpeed: 0
-  cameraMaxSpeed: 500
-  cameraSwingMaxSpeed: 800
-  cameraMaxDistance: 1
+  cameraMaxSpeed: 14
+  cameraSwingMaxSpeed: 20
+  cameraMaxDistance: 2
   cameraSmoothTime: 0.05
   mouseSensivity: 400
   cameraMaxAngle: 100
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   rollingVolumeDecreaseSpeed: 0.5
   flyingVolumeDecreaseSpeed: 0.7
   maximumRollingVolume: 0.7
-  maximumFlingVolume: 0.3
+  maximumFlingVolume: 1
 --- !u!114 &1707726741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
     volume: 1
   - nameOfSound: FlyingOnHook
     audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
-    volume: 0.5
+    volume: 1
   - nameOfSound: HookFire
     audioClip: {fileID: 8300000, guid: 4adf2b3c0d2922e45a056ad93fd6d9d5, type: 3}
     volume: 0.191
