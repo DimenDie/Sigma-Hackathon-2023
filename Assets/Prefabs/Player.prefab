@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 8088693068699778036}
   - component: {fileID: 1594994310}
   - component: {fileID: 1594994309}
+  - component: {fileID: 5082616170021099039}
   m_Layer: 3
   m_Name: flopsy (1)
   m_TagString: Player
@@ -339,6 +340,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollingSource: {fileID: 8088693068699778036}
   flyingSource: {fileID: 1594994310}
+--- !u!114 &5082616170021099039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73761113593168149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b846c8fa098ce94c909850069c71974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag: DeathBringer
 --- !u!1 &1761735172851500937
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +647,8 @@ MonoBehaviour:
   pulseSpeed: 1
   pulsePower: 2
   defaultIntensity: 3
+  timer: 0
+  canPulse: 0
 --- !u!1 &7769623900214202353
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +981,7 @@ GameObject:
   - component: {fileID: 8088693070341542208}
   - component: {fileID: 9176509262565722532}
   - component: {fileID: 8088693068699778038}
+  - component: {fileID: 1707726741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1076,6 +1093,46 @@ MonoBehaviour:
   flyingVolumeDecreaseSpeed: 0.7
   maximumRollingVolume: 0.7
   maximumFlingVolume: 0.3
+--- !u!114 &1707726741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088693070341542210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6a2ebbfe47b3a4b9591d7176aea0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereMaterial: {fileID: 2100000, guid: 52d70b2421d06c4478030cd026edbeb6, type: 2}
+  rootsMaterial: {fileID: 2100000, guid: 29d6343a98983924db0fbfd3e710fd8c, type: 2}
+  dissolveSpeed: 2
+  defaultThiccness: 0.05
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8942916014812095442
 GameObject:
   m_ObjectHideFlags: 0

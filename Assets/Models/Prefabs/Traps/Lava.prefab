@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2421794753063189653}
   m_Layer: 0
   m_Name: Lava
-  m_TagString: Untagged
+  m_TagString: DeathBringer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528910222017818636}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 8, y: 8, z: 8}

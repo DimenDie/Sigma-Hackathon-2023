@@ -84,7 +84,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Amount: 5
+    - _Amount: 1
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -92,8 +92,10 @@ Material:
     - _ColorToTextureBlending: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Dead: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DissolveStatus: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
@@ -111,13 +113,14 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thiccness: 0.01
+    - _Thiccness: 0
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.14150941, g: 0.010723448, b: 0, a: 1}
     - _Color: {r: 0.32156864, g: 0.047058824, b: 0, a: 1}
+    - _DeathDissolveColor: {r: 14.259475, g: 0, b: 0, a: 0}
     - _DissolveColor: {r: 0.87024164, g: 7.924529, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
