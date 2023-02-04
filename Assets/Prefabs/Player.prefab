@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: DeathBringer
+  isDead: 0
 --- !u!1 &1761735172851500937
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +562,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.37626222, g: 0.83077013, b: 0.8879234, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Color: {r: 0.15566039, g: 0.81455225, b: 1, a: 1}
+  m_Intensity: 6
+  m_Range: 10.265752
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1032,7 +1033,7 @@ MonoBehaviour:
     m_Bits: 247
   landingTimeCap: 0.5
   cameraMinSpeed: 0
-  cameraMaxSpeed: 15
+  cameraMaxSpeed: 16
   cameraSwingMaxSpeed: 22
   cameraMaxDistance: 1
   cameraSmoothTime: 10
@@ -1266,19 +1267,19 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: eafee29e29e542a40986f17ef87152de, type: 3}
     volume: 1
   - nameOfSound: FlyingOnHook
-    audioClip: {fileID: 8300000, guid: 1611b8f3ea78b71419cfd3f23dedde6d, type: 3}
+    audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
     volume: 0.5
   - nameOfSound: HookFire
-    audioClip: {fileID: 8300000, guid: cb331e12d1a867c46aa416e933028195, type: 3}
-    volume: 0.5
+    audioClip: {fileID: 8300000, guid: 4adf2b3c0d2922e45a056ad93fd6d9d5, type: 3}
+    volume: 0.191
   - nameOfSound: HookLanded
     audioClip: {fileID: 8300000, guid: a8060c08160b9ff4ba4836c1718e36f7, type: 3}
-    volume: 0.5
+    volume: 0.275
   - nameOfSound: HookUnhook
-    audioClip: {fileID: 8300000, guid: 4d6f04d43828a72428ad7276767dbd57, type: 3}
-    volume: 0.5
+    audioClip: {fileID: 8300000, guid: 4adf2b3c0d2922e45a056ad93fd6d9d5, type: 3}
+    volume: 0.19
   - nameOfSound: Landing
-    audioClip: {fileID: 8300000, guid: 220c29202feb30b4790b7dd267675325, type: 3}
+    audioClip: {fileID: 8300000, guid: cef43a9af1c0321478d70081f86041d2, type: 3}
     volume: 0.5
 --- !u!82 &332034814848979070
 AudioSource:

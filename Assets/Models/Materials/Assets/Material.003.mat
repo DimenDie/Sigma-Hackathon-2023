@@ -113,10 +113,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.078431375, g: 3.2470589, b: 2.509804, a: 1}
+    - _BaseColor: {r: 0.75392663, g: 11.811518, b: 21.361254, a: 1}
     - _Color: {r: 0.1013427, g: 0.818202, b: 0.9063317, a: 1}
     - _DeathDissolveColor: {r: 95.87451, g: 0, b: 19.576471, a: 0}
-    - _DissolveColor: {r: 0, g: 11.984314, b: 5.3185925, a: 0}
+    - _DissolveColor: {r: 0.013514099, g: 0.5450686, b: 1.1486983, a: 0}
     - _EmissionColor: {r: 0.41286176, g: 2.897359, b: 4.3, a: 4.3}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
