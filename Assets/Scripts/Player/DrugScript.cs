@@ -5,8 +5,9 @@ using UnityEngine;
 public class DrugScript : MonoBehaviour
 {
     [SerializeField] Transform drugPivot, drugTransform;
-    [SerializeField] float radius, speed;
-    Vector3 defaultPos;
+    [SerializeField] float pivoRadius, pivoSpeed, friendMaxSpeed, friendMaxDistance, drugSmoothTime;
+    float friendSpeed, pivotAndDrugDistance, friendMinSpeed;
+    Vector3 defaultPos, drugVelocity;
 
     private void Start()
     {
@@ -15,7 +16,11 @@ public class DrugScript : MonoBehaviour
 
     void Update()
     {
-        drugPivot.localPosition = defaultPos + new Vector3(Mathf.Sin(Time.time * speed) * radius, 0 , Mathf.Cos(Time.time * speed) * radius);
+        pivotAndDrugDistance = Vector3.Distance(drugPivot.position, drugTransform.position);
+        friendSpeed = Mathf.Lerp(friendMinSpeed, friendMaxSpeed, pivotAndDrugDistance / friendMaxDistance);
+
+        drugPivot.localPosition = defaultPos + new Vector3(Mathf.Sin(Time.time * pivoSpeed) * pivoRadius, 0 , Mathf.Cos(Time.time * pivoSpeed) * pivoRadius);
+        drugTransform.transform.position = Vector3.SmoothDamp(drugTransform.transform.position, drugPivot.transform.position, ref drugVelocity, drugSmoothTime, friendSpeed);
     }
 
 }
