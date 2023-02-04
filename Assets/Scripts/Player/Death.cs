@@ -10,7 +10,7 @@ public class Death : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag(tag))
+        if (other.transform.CompareTag(tag) && !isDead)
         {
             StartCoroutine(spawnShader.DissolveSwitch(true));
             isDead = true;            

@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 1594994310}
   - component: {fileID: 1594994309}
   - component: {fileID: 5082616170021099039}
+  - component: {fileID: 4839672879205745290}
   m_Layer: 3
   m_Name: flopsy (1)
   m_TagString: Player
@@ -355,6 +356,14 @@ MonoBehaviour:
   tag: DeathBringer
   spawnShader: {fileID: 1707726741}
   isDead: 0
+--- !u!81 &4839672879205745290
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73761113593168149}
+  m_Enabled: 1
 --- !u!1 &189626464338901400
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8088693070201699968}
   - component: {fileID: 8088693070201699971}
-  - component: {fileID: 8088693070201699970}
   - component: {fileID: 8088693070201699969}
   - component: {fileID: 8088693068699778044}
   m_Layer: 0
@@ -1030,14 +1038,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8088693070201699970
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088693070201699997}
-  m_Enabled: 1
 --- !u!114 &8088693070201699969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,6 +1693,12 @@ MonoBehaviour:
     volume: 0.19
   - nameOfSound: Landing
     audioClip: {fileID: 8300000, guid: cef43a9af1c0321478d70081f86041d2, type: 3}
+    volume: 0.5
+  - nameOfSound: Lava
+    audioClip: {fileID: 8300000, guid: 1fd32b03577c11447b0616b9ac963644, type: 3}
+    volume: 0.2
+  - nameOfSound: DeathSound
+    audioClip: {fileID: 8300000, guid: ce7f7dd1d1bccef44a0470b7af9da00a, type: 3}
     volume: 0.5
 --- !u!82 &332034814848979070
 AudioSource:
