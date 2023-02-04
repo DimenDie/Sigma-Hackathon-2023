@@ -422,7 +422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c1ee3122968756f47a640126a62c2bc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab419616e3c3c4a4282750790e0340a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -556,6 +556,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8088693069467680799}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2263997967705763846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5472017943329759027}
+  m_Layer: 0
+  m_Name: DrugPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5472017943329759027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263997967705763846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5439102014262165119}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3653390329129623818
@@ -852,6 +883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2352844992256197562}
+  - {fileID: 5472017943329759027}
   m_Father: {fileID: 8088693070341542211}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1073,6 +1105,7 @@ GameObject:
   - component: {fileID: 9176509262565722532}
   - component: {fileID: 8088693068699778038}
   - component: {fileID: 1707726741}
+  - component: {fileID: 5555854236404131680}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1226,6 +1259,22 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duringDissolve: 0
+--- !u!114 &5555854236404131680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088693070341542210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240abba820d6cb2469fef834d6828e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drugPivot: {fileID: 0}
+  drugTransform: {fileID: 0}
+  radius: 0
+  speed: 0
 --- !u!1 &8942916014812095442
 GameObject:
   m_ObjectHideFlags: 0
