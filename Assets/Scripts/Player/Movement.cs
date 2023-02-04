@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float cameraSwingMaxSpeed;
     [SerializeField] float cameraMaxDistance;
     [SerializeField] float cameraSmoothTime;
-    [SerializeField] float mouseSensivity;
+    [SerializeField] public float mouseSensivity;
     [SerializeField] float cameraMaxAngle;
     [SerializeField] float cameraMinAngle;
 

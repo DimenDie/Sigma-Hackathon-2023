@@ -11,6 +11,11 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject HUDMedal;
     [SerializeField] private GameObject HUDSlider;
 
+    [SerializeField] private Sprite diamondMedal;
+    [SerializeField] private Sprite goldMedal;
+    [SerializeField] private Sprite silverMedal;
+    [SerializeField] private Sprite bronzeMedal;
+
     Level level;
     Slider slider;
 
@@ -33,8 +38,14 @@ public class UI : MonoBehaviour
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
 
-        HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
-
+        if(this.GetComponent<Level>().CheckMedal() == "lightning")
+            HUDMedal.GetComponent<Image>().sprite = diamondMedal;
+        else if (this.GetComponent<Level>().CheckMedal() == "cheetah")
+            HUDMedal.GetComponent<Image>().sprite = goldMedal;
+        else if (this.GetComponent<Level>().CheckMedal() == "bunny")
+            HUDMedal.GetComponent<Image>().sprite = silverMedal;
+        else
+            HUDMedal.GetComponent<Image>().sprite = bronzeMedal;
 
 
         CheckTimeValue();
@@ -76,11 +87,15 @@ public class UI : MonoBehaviour
     public void TogglePause()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        HUDSlider.SetActive(!HUDSlider.activeSelf);
+        HUDMedal.SetActive(!HUDMedal.activeSelf);
 
         Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !Cursor.visible;
 
         ToggleTime();
+
+
 
     }
 
