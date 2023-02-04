@@ -6,10 +6,11 @@ OcclusionCullingSettings:
   serializedVersion: 2
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: 0.25
-    backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+    smallestHole: 1
+    backfaceThreshold: 40.8
+  m_SceneGUID: 155c0523e88db9947b62f5b291050133
+  m_OcclusionCullingData: {fileID: 36300000, guid: 834d22416a6f24d4daa4db53163b35ea,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -53779,13 +53780,13 @@ Transform:
   - {fileID: 142342391}
   - {fileID: 412713530}
   - {fileID: 150370586}
-  - {fileID: 1657479896}
   - {fileID: 639032636}
   - {fileID: 61097597}
   - {fileID: 1063162823}
   - {fileID: 478872141}
   - {fileID: 1025518806}
   - {fileID: 730930432}
+  - {fileID: 1657479896}
   - {fileID: 1745668067}
   - {fileID: 1010123339}
   - {fileID: 379238533}

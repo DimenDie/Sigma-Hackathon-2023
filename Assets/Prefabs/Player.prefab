@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26a401f742cc1b4dac68c1f0b90523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 2
+  minDistance: 1.5
   maxDistance: 10
   smooth: 10
   dollyDirAdjusted: {x: 0, y: 0, z: 0}
@@ -1163,8 +1163,8 @@ MonoBehaviour:
   cameraMaxDistance: 0.2
   cameraSmoothTime: 0.09
   mouseSensivity: 400
-  cameraMaxAngle: 120
-  cameraMinAngle: 5
+  cameraMaxAngle: 80
+  cameraMinAngle: 20
   centralPoint: {fileID: 8088693069467680799}
   playerPrefab: {fileID: 8088693070341542211}
   sphereTransform: {fileID: 742493584082934703}
