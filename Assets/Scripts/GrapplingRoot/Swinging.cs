@@ -39,8 +39,12 @@ public class Swinging : MonoBehaviour
     {
         rootOrigin.position = player.position;
         shootCenter.eulerAngles = Vector3.zero;
-
+        
         GrapplePointCheck();
+
+        if (FindObjectOfType<Death>().isDead)
+            return;
+
 
         if (Input.GetKeyDown(swingKey)) StartSwing();
         if (Input.GetKeyUp(swingKey)) StopSwing();

@@ -5,14 +5,15 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     public string tag;
+    [SerializeField] ShaderBehaviour spawnShader;
     [HideInInspector] public bool isDead;
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.transform.CompareTag(tag))
         {
-            isDead = true;
-            FindObjectOfType<UI>().TogglePause();
+            StartCoroutine(spawnShader.DissolveSwitch(true));
+            isDead = true;            
         }
     }
 }

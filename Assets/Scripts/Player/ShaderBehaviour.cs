@@ -8,7 +8,7 @@ public class ShaderBehaviour : MonoBehaviour
     [SerializeField] float dissolveSpeed;
     [SerializeField] float defaultThiccness;
     [SerializeField] AnimationCurve curve;
-    bool duringDissolve, onoff;
+    [HideInInspector] public bool duringDissolve;
 
     float defaultLightIntensity;
 
@@ -20,18 +20,12 @@ public class ShaderBehaviour : MonoBehaviour
         pointLightPulse = FindObjectOfType<PlayerPointLight>();
         light = pointLightPulse.GetComponent<Light>();
         defaultLightIntensity = pointLightPulse.defaultIntensity;
+
+        StartCoroutine(DissolveSwitch(false));
+
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O) && !duringDissolve)
-        {
-            StartCoroutine(DissolveSwitch(onoff));
-            onoff = !onoff;
-        }
-    }
-
-    IEnumerator DissolveSwitch( bool on )
+    public IEnumerator DissolveSwitch( bool on )
     {
         float t = 0;
         float startValue = on ? 0 : 1;
@@ -69,6 +63,9 @@ public class ShaderBehaviour : MonoBehaviour
         rootsMaterial.SetFloat("_DissolveStatus", targetValue);
         light.intensity = targetLightIntensity;
 
+        if (on)
+            FindObjectOfType<UI>().TogglePause();
+
         t = 0;
 
         while(t<=1)
@@ -86,6 +83,7 @@ public class ShaderBehaviour : MonoBehaviour
         rootsMaterial.SetFloat("_Thiccness", 0);
 
         duringDissolve = false;
+        
 
 
     }

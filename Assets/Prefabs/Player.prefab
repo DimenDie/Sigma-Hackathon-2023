@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: DeathBringer
+  spawnShader: {fileID: 1707726741}
   isDead: 0
 --- !u!1 &1761735172851500937
 GameObject:
@@ -563,7 +564,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.15566039, g: 0.81455225, b: 1, a: 1}
-  m_Intensity: 6
+  m_Intensity: 0
   m_Range: 10.265752
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
@@ -1134,6 +1135,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  duringDissolve: 0
 --- !u!1 &8942916014812095442
 GameObject:
   m_ObjectHideFlags: 0

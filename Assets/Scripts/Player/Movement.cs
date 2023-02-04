@@ -71,6 +71,12 @@ public class Movement : MonoBehaviour
             playerRigidbody.velocity = Vector3.zero;
         }
 
+
+
+
+        if (FindObjectOfType<Death>().isDead)
+            return;
+
         Move();
         CameraTracking();
         CameraRotation();
