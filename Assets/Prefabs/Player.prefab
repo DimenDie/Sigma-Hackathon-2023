@@ -1126,7 +1126,7 @@ MonoBehaviour:
   cameraMinSpeed: 0
   cameraMaxSpeed: 14
   cameraSwingMaxSpeed: 20
-  cameraMaxDistance: 2
+  cameraMaxDistance: 1.15
   cameraSmoothTime: 0.05
   mouseSensivity: 400
   cameraMaxAngle: 100
