@@ -145,7 +145,7 @@ public class Swinging : MonoBehaviour
         joint.maxDistance = distanceFromPoint * 0.55f;
         joint.minDistance = distanceFromPoint * 0.25f;
 
-        joint.spring = 30f;
+        joint.spring = 20f;
         joint.damper = 7f;
         joint.massScale = 4.5f;
 

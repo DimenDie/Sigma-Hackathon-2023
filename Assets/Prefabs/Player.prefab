@@ -1089,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 8088693070341542210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -31.5, y: 1, z: 30.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742493584082934703}
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ee47899ce901f489f473ef84eee594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 14
+  playerSpeed: 17
   playerDeceleration: 7
   playerAcceleration: 35
   swingSpeed: 20
@@ -1124,13 +1124,13 @@ MonoBehaviour:
     m_Bits: 247
   landingTimeCap: 0.5
   cameraMinSpeed: 0
-  cameraMaxSpeed: 14
+  cameraMaxSpeed: 20
   cameraSwingMaxSpeed: 20
-  cameraMaxDistance: 2
-  cameraSmoothTime: 0.05
+  cameraMaxDistance: 0.2
+  cameraSmoothTime: 0.09
   mouseSensivity: 400
-  cameraMaxAngle: 100
-  cameraMinAngle: 10
+  cameraMaxAngle: 120
+  cameraMinAngle: 5
   centralPoint: {fileID: 8088693069467680799}
   playerPrefab: {fileID: 8088693070341542211}
   sphereTransform: {fileID: 742493584082934703}
