@@ -95,7 +95,7 @@ Material:
     - _Dead: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveStatus: 0.8972224
+    - _DissolveStatus: 0.9312216
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
@@ -113,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thiccness: 0.04599504
+    - _Thiccness: 0.05
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1

@@ -1034,10 +1034,10 @@ MonoBehaviour:
     m_Bits: 247
   landingTimeCap: 0.5
   cameraMinSpeed: 0
-  cameraMaxSpeed: 16
-  cameraSwingMaxSpeed: 22
+  cameraMaxSpeed: 500
+  cameraSwingMaxSpeed: 800
   cameraMaxDistance: 1
-  cameraSmoothTime: 10
+  cameraSmoothTime: 0.05
   mouseSensivity: 400
   cameraMaxAngle: 100
   cameraMinAngle: 10
