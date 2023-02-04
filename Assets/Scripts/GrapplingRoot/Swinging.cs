@@ -120,6 +120,8 @@ public class Swinging : MonoBehaviour
 
         while (joint)
         {
+            if (hookObj == null) yield break;
+
             hookObj.transform.rotation = Quaternion.Euler(0, DetectAngleY() + 90, DetectAngleZ() + 90);
             hookObj.transform.position = (rootOrigin.position + swingPoint) / 2;
             hookObj.transform.localScale = new Vector3
