@@ -87,10 +87,10 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Dead: 0
+    - _Dead: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveStatus: 0
+    - _DissolveStatus: 0.9300881
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
@@ -108,7 +108,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thiccness: 0
+    - _Thiccness: 0.04599463
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
