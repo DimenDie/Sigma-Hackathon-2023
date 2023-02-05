@@ -9,7 +9,13 @@ public class UI : MonoBehaviour
 {
     public GameObject pauseMenu;
     [SerializeField] private GameObject HUDMedal;
+    [SerializeField] private GameObject resultMedal;
     [SerializeField] private GameObject HUDSlider;
+
+    [SerializeField] private Sprite diamondMedal;
+    [SerializeField] private Sprite goldMedal;
+    [SerializeField] private Sprite silverMedal;
+    [SerializeField] private Sprite bronzeMedal;
 
     Level level;
     Slider slider;
@@ -34,9 +40,29 @@ public class UI : MonoBehaviour
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
 
-        HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
+        if (this.GetComponent<Level>().CheckMedal() == "lightning") 
+        {
+            resultMedal.GetComponent<Image>().sprite = diamondMedal;
+            HUDMedal.GetComponent<Image>().sprite = diamondMedal;
+        }
+        else if (this.GetComponent<Level>().CheckMedal() == "cheetah")
+        {
+            resultMedal.GetComponent<Image>().sprite = goldMedal;
+            HUDMedal.GetComponent<Image>().sprite = goldMedal;
+        }
+        else if (this.GetComponent<Level>().CheckMedal() == "bunny")
+        {
+            resultMedal.GetComponent<Image>().sprite = silverMedal;
+            HUDMedal.GetComponent<Image>().sprite = silverMedal;
+        }
+        else
+        {
+            resultMedal.GetComponent<Image>().sprite = bronzeMedal;
+            HUDMedal.GetComponent<Image>().sprite = bronzeMedal;
+        }
 
         notDuringPause = pauseMenu.activeInHierarchy;
+
 
         CheckTimeValue();
 
@@ -77,6 +103,8 @@ public class UI : MonoBehaviour
     public void TogglePause()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        HUDSlider.SetActive(!HUDSlider.activeSelf);
+        HUDMedal.SetActive(!HUDMedal.activeSelf);
 
         if (notDuringPause)
             FindObjectOfType<AudioMixerHolder>().TurnSoundOn();
@@ -87,6 +115,8 @@ public class UI : MonoBehaviour
         Cursor.visible = !Cursor.visible;
 
         ToggleTime();
+
+
 
     }
 

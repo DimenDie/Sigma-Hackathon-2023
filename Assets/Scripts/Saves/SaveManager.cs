@@ -31,42 +31,6 @@ public static class SaveManager
         return obj;
     }
 
-    public static T[] LoadAllFromDirectory<T>(string folderName)
-    {
-        CheckOrCreateDirectory(folderName);
-        var files = Directory.GetFiles(_mainSavePath + $"/{folderName}/");
-        var data = new T[files.Length];
-        for (var i = 0; i < files.Length; i++)
-        {
-            var json = File.ReadAllText(files[i]);
-            data[i] = JsonUtility.FromJson<T>(json);
-        }
-            
-        Debug.Log(Green($"Loaded all files from {folderName}"));
-
-        return data;
-    }
-        
-    public static (string[] names, T[] objects) LoadAllFromDirectoryWithNames<T>(string subPath)
-    {
-        CheckOrCreateDirectory(subPath);
-        var files = Directory.GetFiles(_mainSavePath + $"/{subPath}/");
-
-        var names = new string[files.Length];
-        var data = new T[files.Length];
-        for (var i = 0; i < files.Length; i++)
-        {
-            names[i] = Path.GetFileNameWithoutExtension(files[i]);
-                
-            var json = File.ReadAllText(files[i]);
-            data[i] = JsonUtility.FromJson<T>(json);
-        }
-            
-        Debug.Log(Green($"Loaded all files from {subPath}"));
-            
-        return (names, data);
-    }
-
     private static void CheckOrCreateDirectory(string folderName)
     {
         if (Directory.Exists(_mainSavePath + $"/{folderName}/")) return;
@@ -85,8 +49,5 @@ public static class SaveManager
 
     private static bool CheckFolder(string subPath) => CheckPath(_mainSavePath + $"/{subPath}/");
         
-    /// <summary>
-    /// Sets the color of the text to green (via rich text)
-    /// </summary>
     private static string Green(string text) => $"<b><color=green>{text}</color></b>";
 }
