@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
 
     List<float> timeValues = new List<float>();
 
-    [HideInInspector] public bool duringPause;
+    [HideInInspector] public bool notDuringPause;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class UI : MonoBehaviour
 
         HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
 
-        duringPause = pauseMenu.activeInHierarchy;
+        notDuringPause = pauseMenu.activeInHierarchy;
 
         CheckTimeValue();
 
@@ -78,7 +78,7 @@ public class UI : MonoBehaviour
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
 
-        if (duringPause)
+        if (notDuringPause)
             FindObjectOfType<AudioMixerHolder>().TurnSoundOn();
         else
             FindObjectOfType<AudioMixerHolder>().TurnSoundOff();
