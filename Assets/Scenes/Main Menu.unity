@@ -659,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &103468844
 Transform:
   m_ObjectHideFlags: 0
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToUnlock: 0
-  sceneToCheckMedal: 1
+  sceneToCheckMedal: 2
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: ca192d3eae8c9024b95d5d7f9e571157, type: 3}
   unlocked: {fileID: 21300000, guid: 72a9d7b8bf193e34e87c96e8df6daf1e, type: 3}
@@ -2996,7 +2996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1465173141
 Transform:
   m_ObjectHideFlags: 0
@@ -3901,8 +3901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToUnlock: 3
-  sceneToCheckMedal: 4
+  sceneToUnlock: 4
+  sceneToCheckMedal: 5
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: ca192d3eae8c9024b95d5d7f9e571157, type: 3}
   unlocked: {fileID: 21300000, guid: 72a9d7b8bf193e34e87c96e8df6daf1e, type: 3}
@@ -3962,7 +3962,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4185,7 +4185,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4252,8 +4252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToUnlock: 1
-  sceneToCheckMedal: 2
+  sceneToUnlock: 2
+  sceneToCheckMedal: 3
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: ca192d3eae8c9024b95d5d7f9e571157, type: 3}
   unlocked: {fileID: 21300000, guid: 72a9d7b8bf193e34e87c96e8df6daf1e, type: 3}
@@ -4880,7 +4880,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4947,8 +4947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edb7b8052851ca4ba2ef2a4b8a30a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToUnlock: 2
-  sceneToCheckMedal: 3
+  sceneToUnlock: 3
+  sceneToCheckMedal: 4
   MainMenu: {fileID: 103468843}
   locked: {fileID: 21300000, guid: ca192d3eae8c9024b95d5d7f9e571157, type: 3}
   unlocked: {fileID: 21300000, guid: 72a9d7b8bf193e34e87c96e8df6daf1e, type: 3}

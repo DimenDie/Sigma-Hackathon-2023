@@ -22,14 +22,13 @@ public class ButtonIconUpdater : MonoBehaviour
     {
         this.GetComponent<Image>().sprite = locked;
         this.GetComponent<Button>().interactable = false;
-        int levelScene = sceneToUnlock + 1;
         if (sceneToUnlock == 0 || MainMenu.GetComponent<MainMenu>().CheckSave(sceneToUnlock))
         {
             this.GetComponent<Button>().interactable = true;
             this.GetComponent<Image>().sprite = unlocked;
         }
         medalOfLevel.GetComponent<Image>().enabled = false;
-        if (!MainMenu.GetComponent<MainMenu>().CheckSave(levelScene)) return;
+        if (!MainMenu.GetComponent<MainMenu>().CheckSave(sceneToCheckMedal)) return;
 
         medalOfLevel.GetComponent<Image>().enabled = true;
 
