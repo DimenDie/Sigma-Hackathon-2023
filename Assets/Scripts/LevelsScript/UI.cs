@@ -69,7 +69,7 @@ public class UI : MonoBehaviour
         CheckTimeValue();
 
 
-        if (Input.GetKeyDown(KeyCode.B) && FindObjectOfType<Death>().isDead == false && FindObjectOfType<Level>().levelFinished) //Change to escape later
+        if (Input.GetKeyDown(KeyCode.Escape) && FindObjectOfType<Death>().isDead == false && FindObjectOfType<Level>().levelFinished) //Change to escape later
         {
             TogglePause();
         }
