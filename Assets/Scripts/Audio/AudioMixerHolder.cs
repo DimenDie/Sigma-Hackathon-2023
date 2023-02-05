@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioMixerHolder : MonoBehaviour
 {
-    [SerializeField] AudioMixer audioMixer;
+    public AudioMixer audioMixer;
 
     float defaultVolume;
     
