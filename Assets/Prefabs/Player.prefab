@@ -1131,7 +1131,7 @@ MonoBehaviour:
   rollingVolumeDecreaseSpeed: 0.5
   flyingVolumeDecreaseSpeed: 0.7
   maximumRollingVolume: 0.7
-  maximumFlingVolume: 1
+  maximumFlingVolume: 0.32
 --- !u!114 &1707726741
 MonoBehaviour:
   m_ObjectHideFlags: 0
