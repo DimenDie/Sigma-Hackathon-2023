@@ -22,6 +22,7 @@ public class UI : MonoBehaviour
 
     List<float> timeValues = new List<float>();
 
+    [HideInInspector] public bool notDuringPause;
 
     private void Start()
     {
@@ -59,6 +60,8 @@ public class UI : MonoBehaviour
             resultMedal.GetComponent<Image>().sprite = bronzeMedal;
             HUDMedal.GetComponent<Image>().sprite = bronzeMedal;
         }
+
+        notDuringPause = pauseMenu.activeInHierarchy;
 
 
         CheckTimeValue();
@@ -102,6 +105,11 @@ public class UI : MonoBehaviour
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         HUDSlider.SetActive(!HUDSlider.activeSelf);
         HUDMedal.SetActive(!HUDMedal.activeSelf);
+
+        if (notDuringPause)
+            FindObjectOfType<AudioMixerHolder>().TurnSoundOn();
+        else
+            FindObjectOfType<AudioMixerHolder>().TurnSoundOff();
 
         Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !Cursor.visible;

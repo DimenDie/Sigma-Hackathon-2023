@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 1594994310}
   - component: {fileID: 1594994309}
   - component: {fileID: 5082616170021099039}
+  - component: {fileID: 4839672879205745290}
   m_Layer: 3
   m_Name: flopsy (1)
   m_TagString: Player
@@ -143,7 +144,8 @@ AudioSource:
   m_GameObject: {fileID: 73761113593168149}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: eac5b0462a09da64cbffd0d48195ff15, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
@@ -239,7 +241,8 @@ AudioSource:
   m_GameObject: {fileID: 73761113593168149}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
@@ -355,6 +358,14 @@ MonoBehaviour:
   tag: DeathBringer
   spawnShader: {fileID: 1707726741}
   isDead: 0
+--- !u!81 &4839672879205745290
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73761113593168149}
+  m_Enabled: 1
 --- !u!1 &189626464338901400
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +973,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8088693070201699968}
   - component: {fileID: 8088693070201699971}
-  - component: {fileID: 8088693070201699970}
   - component: {fileID: 8088693070201699969}
   - component: {fileID: 8088693068699778044}
   m_Layer: 0
@@ -1030,14 +1040,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8088693070201699970
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8088693070201699997}
-  m_Enabled: 1
 --- !u!114 &8088693070201699969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26a401f742cc1b4dac68c1f0b90523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 2
+  minDistance: 1.5
   maxDistance: 10
   smooth: 10
   dollyDirAdjusted: {x: 0, y: 0, z: 0}
@@ -1106,6 +1108,7 @@ GameObject:
   - component: {fileID: 8088693068699778038}
   - component: {fileID: 1707726741}
   - component: {fileID: 5555854236404131680}
+  - component: {fileID: 4955078263697552918}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1163,8 +1166,8 @@ MonoBehaviour:
   cameraMaxDistance: 0.2
   cameraSmoothTime: 0.09
   mouseSensivity: 400
-  cameraMaxAngle: 120
-  cameraMinAngle: 5
+  cameraMaxAngle: 100
+  cameraMinAngle: 20
   centralPoint: {fileID: 8088693069467680799}
   playerPrefab: {fileID: 8088693070341542211}
   sphereTransform: {fileID: 742493584082934703}
@@ -1279,6 +1282,19 @@ MonoBehaviour:
   friendMaxSpeed: 35
   friendMaxDistance: 10
   drugSmoothTime: 0.1
+--- !u!114 &4955078263697552918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088693070341542210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ed52355c7742245953c6e9359edb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: c84b4c53b8caf1444b4988e640ed6312, type: 2}
 --- !u!1 &8228636348127923483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1392,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8834775, b: 0.39999998, a: 1}
-  m_Intensity: 5
+  m_Intensity: 15
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1681,19 +1697,28 @@ MonoBehaviour:
     volume: 1
   - nameOfSound: FlyingOnHook
     audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
-    volume: 1
+    volume: 0.032
   - nameOfSound: HookFire
     audioClip: {fileID: 8300000, guid: 4adf2b3c0d2922e45a056ad93fd6d9d5, type: 3}
-    volume: 0.191
+    volume: 0.098
   - nameOfSound: HookLanded
     audioClip: {fileID: 8300000, guid: a8060c08160b9ff4ba4836c1718e36f7, type: 3}
-    volume: 0.275
+    volume: 0.198
   - nameOfSound: HookUnhook
     audioClip: {fileID: 8300000, guid: 4adf2b3c0d2922e45a056ad93fd6d9d5, type: 3}
     volume: 0.19
   - nameOfSound: Landing
     audioClip: {fileID: 8300000, guid: cef43a9af1c0321478d70081f86041d2, type: 3}
     volume: 0.5
+  - nameOfSound: Lava
+    audioClip: {fileID: 8300000, guid: 1fd32b03577c11447b0616b9ac963644, type: 3}
+    volume: 0.2
+  - nameOfSound: DeathSound
+    audioClip: {fileID: 8300000, guid: ce7f7dd1d1bccef44a0470b7af9da00a, type: 3}
+    volume: 0.245
+  - nameOfSound: SpawnSound
+    audioClip: {fileID: 8300000, guid: fcda89700605c61499d19a30429ab4b1, type: 3}
+    volume: 0.245
 --- !u!82 &332034814848979070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1703,7 +1728,8 @@ AudioSource:
   m_GameObject: {fileID: 9063372093455291086}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
