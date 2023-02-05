@@ -278,9 +278,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 24.172522
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -288,23 +288,59 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.054744862
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -18.273859
+      outSlope: -18.273859
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.109489724
+      value: 0.5
+      inSlope: -4.5684648
+      outSlope: -4.5684648
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.21897945
+      value: 0.25
+      inSlope: -1.1421162
+      outSlope: -1.1421162
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4379589
+      value: 0.125
+      inSlope: -0.28552905
+      outSlope: -0.28552905
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7514061
+      value: 0.05104065
+      inSlope: -0.051211223
+      outSlope: -0.051211223
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.054766703
+      outSlope: -0.054766703
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

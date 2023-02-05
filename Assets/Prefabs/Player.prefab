@@ -1131,7 +1131,7 @@ MonoBehaviour:
   rollingVolumeDecreaseSpeed: 0.5
   flyingVolumeDecreaseSpeed: 0.7
   maximumRollingVolume: 0.7
-  maximumFlingVolume: 1
+  maximumFlingVolume: 0.32
 --- !u!114 &1707726741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: ce7f7dd1d1bccef44a0470b7af9da00a, type: 3}
     volume: 0.245
   - nameOfSound: SpawnSound
-    audioClip: {fileID: 8300000, guid: fcda89700605c61499d19a30429ab4b1, type: 3}
+    audioClip: {fileID: 0}
     volume: 0.245
 --- !u!82 &332034814848979070
 AudioSource:
