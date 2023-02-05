@@ -38,6 +38,8 @@ public class ShaderBehaviour : MonoBehaviour
 
         if (on)
             FindObjectOfType<AudioManager>().PlaySound("DeathSound");
+        else
+            FindObjectOfType<AudioManager>().PlaySound("SpawnSound"); 
 
         sphereMaterial.SetFloat("_Thiccness", defaultThiccness);
         rootsMaterial.SetFloat("_Thiccness", defaultThiccness);

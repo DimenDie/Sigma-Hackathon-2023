@@ -2271,11 +2271,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LavaSoundPad
       objectReference: {fileID: 0}
-    - target: {fileID: 947331410768668518, guid: 26d6ea22b24b0fc4f84d94078029b025,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 947331410768668519, guid: 26d6ea22b24b0fc4f84d94078029b025,
         type: 3}
       propertyPath: m_RootOrder
