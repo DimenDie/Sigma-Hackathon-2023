@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Material.002
-  m_Shader: {fileID: -6465566751694194690, guid: 9c85ba697ae4bec45bd0894b8a4c9316,
+  m_Shader: {fileID: -6465566751694194690, guid: 458a59ba2d3d582429558fb7451daae0,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -95,7 +95,7 @@ Material:
     - _Dead: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DissolveStatus: 0.22340655
+    - _DissolveStatus: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
@@ -113,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thiccness: 0.05
+    - _Thiccness: 0
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
