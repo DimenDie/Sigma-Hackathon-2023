@@ -144,7 +144,8 @@ AudioSource:
   m_GameObject: {fileID: 73761113593168149}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: eac5b0462a09da64cbffd0d48195ff15, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
@@ -240,7 +241,8 @@ AudioSource:
   m_GameObject: {fileID: 73761113593168149}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 418c2f65ac3a141478fa7a4bfef4b4fc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
@@ -1106,6 +1108,7 @@ GameObject:
   - component: {fileID: 8088693068699778038}
   - component: {fileID: 1707726741}
   - component: {fileID: 5555854236404131680}
+  - component: {fileID: 4955078263697552918}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1279,6 +1282,19 @@ MonoBehaviour:
   friendMaxSpeed: 35
   friendMaxDistance: 10
   drugSmoothTime: 0.1
+--- !u!114 &4955078263697552918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088693070341542210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ed52355c7742245953c6e9359edb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: c84b4c53b8caf1444b4988e640ed6312, type: 2}
 --- !u!1 &8228636348127923483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1392,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8834775, b: 0.39999998, a: 1}
-  m_Intensity: 7.01
+  m_Intensity: 15
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1709,7 +1725,8 @@ AudioSource:
   m_GameObject: {fileID: 9063372093455291086}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c84b4c53b8caf1444b4988e640ed6312,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
