@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class LevelFinish : MonoBehaviour
 {
     public GameObject UIManager;
-    public GameObject resultMedal;
+    public GameObject resultPanel;
 
 
     private void OnTriggerEnter(Collider other)
@@ -32,8 +32,9 @@ public class LevelFinish : MonoBehaviour
 
             UIManager.GetComponent<UI>().TogglePause();
 
-            resultMedal.SetActive(true);
-            resultMedal.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
+            resultPanel.SetActive(true);
+
+            //resultPanel.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
         }
     }
 }

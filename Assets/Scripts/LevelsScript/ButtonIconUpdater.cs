@@ -15,6 +15,8 @@ public class ButtonIconUpdater : MonoBehaviour
     public Sprite silver;
     public Sprite gold;
     public Sprite diamond;
+
+    public GameObject medalOfLevel;
     void Start()
     {
         this.GetComponent<Button>().interactable = false;
@@ -27,14 +29,17 @@ public class ButtonIconUpdater : MonoBehaviour
 
         if (!MainMenu.GetComponent<MainMenu>().CheckSave(levelScene)) return;
 
+        medalOfLevel.SetActive(true);
         if (SaveManager.Load<SaveInfo>(MainMenu.GetComponent<MainMenu>().folderName, MainMenu.GetComponent<MainMenu>().sceneName).medal == "lightning")
-            this.GetComponent<Image>().sprite = diamond;
+            medalOfLevel.GetComponent<Image>().sprite = diamond;
         else if (SaveManager.Load<SaveInfo>(MainMenu.GetComponent<MainMenu>().folderName, MainMenu.GetComponent<MainMenu>().sceneName).medal == "cheetah")
-            this.GetComponent<Image>().sprite = gold;
+            medalOfLevel.GetComponent<Image>().sprite = gold;
         else if (SaveManager.Load<SaveInfo>(MainMenu.GetComponent<MainMenu>().folderName, MainMenu.GetComponent<MainMenu>().sceneName).medal == "bunny")
-            this.GetComponent<Image>().sprite = silver;
+            medalOfLevel.GetComponent<Image>().sprite = silver;
         else if (SaveManager.Load<SaveInfo>(MainMenu.GetComponent<MainMenu>().folderName, MainMenu.GetComponent<MainMenu>().sceneName).medal == "snail")
-            this.GetComponent<Image>().sprite = bronze;
+            medalOfLevel.GetComponent<Image>().sprite = bronze;
+        else
+            medalOfLevel.SetActive(false);
 
     }
 

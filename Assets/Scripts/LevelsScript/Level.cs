@@ -108,6 +108,11 @@ public class Level : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void StartNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
 
 [Serializable]
