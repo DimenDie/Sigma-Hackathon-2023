@@ -9,13 +9,22 @@ public class UI : MonoBehaviour
 {
     public GameObject pauseMenu;
     [SerializeField] private GameObject HUDMedal;
+    [SerializeField] private GameObject resultMedal;
     [SerializeField] private GameObject HUDSlider;
+    [SerializeField] private GameObject HUDSight;
+    [SerializeField] private GameObject whiteScreen;
+
+    [SerializeField] private Sprite diamondMedal;
+    [SerializeField] private Sprite goldMedal;
+    [SerializeField] private Sprite silverMedal;
+    [SerializeField] private Sprite bronzeMedal;
 
     Level level;
     Slider slider;
 
     List<float> timeValues = new List<float>();
 
+    [HideInInspector] public bool notDuringPause;
 
     private void Start()
     {
@@ -33,17 +42,65 @@ public class UI : MonoBehaviour
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
 
-        HUDMedal.GetComponent<TextMeshProUGUI>().text = this.GetComponent<Level>().CheckMedal();
+        if (this.GetComponent<Level>().CheckMedal() == "lightning") 
+        {
+            resultMedal.GetComponent<Image>().sprite = diamondMedal;
+            HUDMedal.GetComponent<Image>().sprite = diamondMedal;
+        }
+        else if (this.GetComponent<Level>().CheckMedal() == "cheetah")
+        {
+            resultMedal.GetComponent<Image>().sprite = goldMedal;
+            HUDMedal.GetComponent<Image>().sprite = goldMedal;
+        }
+        else if (this.GetComponent<Level>().CheckMedal() == "bunny")
+        {
+            resultMedal.GetComponent<Image>().sprite = silverMedal;
+            HUDMedal.GetComponent<Image>().sprite = silverMedal;
+        }
+        else
+        {
+            resultMedal.GetComponent<Image>().sprite = bronzeMedal;
+            HUDMedal.GetComponent<Image>().sprite = bronzeMedal;
+        }
 
+        notDuringPause = pauseMenu.activeInHierarchy;
 
 
         CheckTimeValue();
 
 
-        if (Input.GetKeyDown(KeyCode.B) && FindObjectOfType<Death>().isDead == false) //Change to escape later
+        if (Input.GetKeyDown(KeyCode.Escape) && FindObjectOfType<Death>().isDead == false && FindObjectOfType<Level>().levelFinished) //Change to escape later
         {
             TogglePause();
         }
+
+    }
+
+    public IEnumerator WhiteFadeOn(GameObject resultPanel)
+    {
+        float t = 0;
+        while(t<=1)
+        {
+            whiteScreen.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(0, 1, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        whiteScreen.GetComponent<CanvasGroup>().alpha = 1;
+        TogglePause();
+        resultPanel.SetActive(true);
+        StartCoroutine(WhiteFadeOff());
+    }
+
+    public IEnumerator WhiteFadeOff()
+    {
+        float t = 0;
+        while (t <= 1)
+        {
+            whiteScreen.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, t);
+            t += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        whiteScreen.GetComponent<CanvasGroup>().alpha = 0;
 
     }
 
@@ -76,11 +133,21 @@ public class UI : MonoBehaviour
     public void TogglePause()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        HUDSlider.SetActive(!HUDSlider.activeSelf);
+        HUDMedal.SetActive(!HUDMedal.activeSelf);
+        HUDSight.SetActive(!HUDSight.activeSelf);
+
+        if (notDuringPause)
+            FindObjectOfType<AudioMixerHolder>().TurnSoundOn();
+        else
+            FindObjectOfType<AudioMixerHolder>().TurnSoundOff();
 
         Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !Cursor.visible;
 
         ToggleTime();
+
+
 
     }
 

@@ -23,8 +23,8 @@ public class RootinTester : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-            StartCoroutine(StartGrapple());
+        //if (Input.GetKeyDown(KeyCode.O))
+        //    StartCoroutine(StartGrapple());
     }
 
 

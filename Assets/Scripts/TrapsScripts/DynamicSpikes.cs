@@ -8,8 +8,10 @@ public class DynamicSpikes : MonoBehaviour
     [SerializeField] AnimationCurve curve;
     public bool spikeCanKill;
     Vector3 defaultPos, newPos;
+    AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         defaultPos = transform.position;
         newPos = defaultPos + (Vector3.down * downShiftValue);
         StartCoroutine(InitSpikeAnim());
@@ -22,6 +24,9 @@ public class DynamicSpikes : MonoBehaviour
         while(true)
         {
             t = 0;
+
+            if (targetPos == defaultPos)
+                audioSource.Play();
 
             while (t <= 1)
             {

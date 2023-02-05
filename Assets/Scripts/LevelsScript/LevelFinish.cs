@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class LevelFinish : MonoBehaviour
 {
     public GameObject UIManager;
-    public GameObject resultMedal;
+    public GameObject resultPanel;
 
 
     private void OnTriggerEnter(Collider other)
@@ -30,10 +30,11 @@ public class LevelFinish : MonoBehaviour
                 SaveManager.Save("GhostReplays", SceneManager.GetActiveScene().name, currentLevel.infoToSave);
             }
 
-            UIManager.GetComponent<UI>().TogglePause();
 
-            resultMedal.SetActive(true);
-            resultMedal.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
+
+            StartCoroutine(UIManager.GetComponent<UI>().WhiteFadeOn(resultPanel));
+
+            //resultPanel.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
         }
     }
 }

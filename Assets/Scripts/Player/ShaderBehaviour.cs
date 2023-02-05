@@ -36,6 +36,10 @@ public class ShaderBehaviour : MonoBehaviour
         float startLightIntensity = on ? defaultLightIntensity : 0;
         float targetLightIntensity = on ? 0 : defaultLightIntensity;
 
+        if (on)
+            FindObjectOfType<AudioManager>().PlaySound("DeathSound");
+        else
+            FindObjectOfType<AudioManager>().PlaySound("SpawnSound"); 
 
         sphereMaterial.SetFloat("_Thiccness", defaultThiccness);
         rootsMaterial.SetFloat("_Thiccness", defaultThiccness);
@@ -67,6 +71,7 @@ public class ShaderBehaviour : MonoBehaviour
         if (on)
         {
             light.intensity = 0;
+
             FindObjectOfType<UI>().TogglePause();
         }
 
