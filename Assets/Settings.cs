@@ -14,8 +14,7 @@ public class Settings : MonoBehaviour
     {
         sensSlider.GetComponent<Slider>().value = player.GetComponent<Movement>().mouseSensivity;
 
-        player.GetComponent<AudioMixerHolder>().audioMixer.GetFloat("MasterVolume", out volumeValue);
-        soundSlider.GetComponent<Slider>().value = volumeValue;
+        soundSlider.GetComponent<Slider>().value = player.GetComponent<AudioMixerHolder>().defaultVolume;
     }
 
     // Update is called once per frame
