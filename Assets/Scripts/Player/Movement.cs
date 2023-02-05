@@ -73,8 +73,7 @@ public class Movement : MonoBehaviour
 
 
 
-
-        if (FindObjectOfType<Death>().isDead)
+        if (FindObjectOfType<Death>().isDead || FindObjectOfType<Level>().levelFinished)
         {
             playerRigidbody.velocity = Vector3.zero;
             return;

@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject resultMedal;
     [SerializeField] private GameObject HUDSlider;
     [SerializeField] private GameObject HUDSight;
+    [SerializeField] private GameObject whiteScreen;
 
     [SerializeField] private Sprite diamondMedal;
     [SerializeField] private Sprite goldMedal;
@@ -68,10 +69,38 @@ public class UI : MonoBehaviour
         CheckTimeValue();
 
 
-        if (Input.GetKeyDown(KeyCode.B) && FindObjectOfType<Death>().isDead == false) //Change to escape later
+        if (Input.GetKeyDown(KeyCode.B) && FindObjectOfType<Death>().isDead == false && FindObjectOfType<Level>().levelFinished) //Change to escape later
         {
             TogglePause();
         }
+
+    }
+
+    public IEnumerator WhiteFadeOn(GameObject resultPanel)
+    {
+        float t = 0;
+        while(t<=1)
+        {
+            whiteScreen.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(0, 1, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        whiteScreen.GetComponent<CanvasGroup>().alpha = 1;
+        TogglePause();
+        resultPanel.SetActive(true);
+        StartCoroutine(WhiteFadeOff());
+    }
+
+    public IEnumerator WhiteFadeOff()
+    {
+        float t = 0;
+        while (t <= 1)
+        {
+            whiteScreen.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(1, 0, t);
+            t += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        whiteScreen.GetComponent<CanvasGroup>().alpha = 0;
 
     }
 

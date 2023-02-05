@@ -42,7 +42,7 @@ public class Swinging : MonoBehaviour
         
         GrapplePointCheck();
 
-        if (FindObjectOfType<Death>().isDead)
+        if (FindObjectOfType<Death>().isDead || FindObjectOfType<Level>().levelFinished)
             return;
 
 

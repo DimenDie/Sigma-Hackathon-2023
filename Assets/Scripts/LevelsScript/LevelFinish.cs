@@ -30,9 +30,9 @@ public class LevelFinish : MonoBehaviour
                 SaveManager.Save("GhostReplays", SceneManager.GetActiveScene().name, currentLevel.infoToSave);
             }
 
-            UIManager.GetComponent<UI>().TogglePause();
 
-            resultPanel.SetActive(true);
+
+            StartCoroutine(UIManager.GetComponent<UI>().WhiteFadeOn(resultPanel));
 
             //resultPanel.GetComponentInChildren<TextMeshProUGUI>().text = UIManager.GetComponent<Level>().CheckMedal();
         }
