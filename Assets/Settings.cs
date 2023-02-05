@@ -28,10 +28,12 @@ public class Settings : MonoBehaviour
     private void ChangeVolume()
     {
         player.GetComponent<AudioMixerHolder>().audioMixer.SetFloat("MasterVolume", soundSlider.GetComponent<Slider>().value);
+        player.GetComponent<AudioMixerHolder>().defaultVolume = soundSlider.GetComponent<Slider>().value;
     }
 
     private void ChangeSensitivity()
     {
         player.GetComponent<Movement>().mouseSensivity = sensSlider.GetComponent<Slider>().value;
+
     }
 }

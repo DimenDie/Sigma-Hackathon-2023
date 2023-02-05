@@ -6,12 +6,12 @@ using UnityEngine.Audio;
 public class AudioMixerHolder : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    [SerializeField] GameObject playerPrefab;
+    public float defaultVolume;
 
-    float defaultVolume;
-    
     private void Start()
     {
-        audioMixer.GetFloat("MasterVolume", out defaultVolume);
+        TurnSoundOn();
     }
 
     public void TurnSoundOff()
