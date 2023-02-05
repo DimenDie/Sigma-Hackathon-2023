@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject HUDMedal;
     [SerializeField] private GameObject resultMedal;
     [SerializeField] private GameObject HUDSlider;
+    [SerializeField] private GameObject HUDSight;
 
     [SerializeField] private Sprite diamondMedal;
     [SerializeField] private Sprite goldMedal;
@@ -105,6 +106,7 @@ public class UI : MonoBehaviour
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         HUDSlider.SetActive(!HUDSlider.activeSelf);
         HUDMedal.SetActive(!HUDMedal.activeSelf);
+        HUDSight.SetActive(!HUDSight.activeSelf);
 
         if (notDuringPause)
             FindObjectOfType<AudioMixerHolder>().TurnSoundOn();

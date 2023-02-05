@@ -646,6 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 7841468112440814311}
     - target: {fileID: 4922270149210639656, guid: ec0501f472962164495abfcf3e41f128,
         type: 3}
+      propertyPath: HUDSight
+      value: 
+      objectReference: {fileID: 2279119298452520961}
+    - target: {fileID: 4922270149210639656, guid: ec0501f472962164495abfcf3e41f128,
+        type: 3}
       propertyPath: goldMedal
       value: 
       objectReference: {fileID: 21300000, guid: a864d4f477bbf494a92a6638fdc874d6,
@@ -843,6 +848,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0501f472962164495abfcf3e41f128, type: 3}
+--- !u!1 &2279119298452520961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7642159395104085578, guid: ec0501f472962164495abfcf3e41f128,
+    type: 3}
+  m_PrefabInstance: {fileID: 8480112724500010571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2513941020000939049 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6290466131042351714, guid: ec0501f472962164495abfcf3e41f128,

@@ -28389,6 +28389,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3593875839615392614, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: bunny
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593875839615392614, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: cheetah
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593875839615392614, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: lightning
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4529915465581901869, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -28468,6 +28483,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 243.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348888863192764605, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49900436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348888863192764605, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8665995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348888863192764605, guid: 1d0a1837222eff34e8034cc1eba7a3cf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 599.868
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d0a1837222eff34e8034cc1eba7a3cf, type: 3}
