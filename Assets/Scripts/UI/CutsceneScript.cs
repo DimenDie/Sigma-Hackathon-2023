@@ -8,18 +8,22 @@ public class CutsceneScript : MonoBehaviour
 {
     [SerializeField] int intOfSceneToLoad;
     [SerializeField] VideoPlayer vPlayer;
-    double videoLength;
-    double timer;
+    double previousClockTime, currentClockTime;
 
     void Start()
     {
-        videoLength = vPlayer.clip.length;
         vPlayer.Play();
+        previousClockTime = -1;
+        currentClockTime = -1;
     }
 
     void Update()
     {
-        if (System.Convert.ToSingle(vPlayer.clockTime) >= System.Convert.ToSingle(videoLength) || Input.GetKeyDown(KeyCode.Space))
+        currentClockTime = vPlayer.clockTime;
+        if (vPlayer.clockTime > 0 && (currentClockTime == previousClockTime || Input.GetKeyDown(KeyCode.Space)))
+        {
             SceneManager.LoadScene(intOfSceneToLoad);
+        }
+        previousClockTime = currentClockTime;
     }
 }

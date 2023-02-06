@@ -249,7 +249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: deb6bb661695f0440970e5a1cb841f95,
+      objectReference: {fileID: 32900000, guid: b9bd7c8684847314884de0d85d681f26,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebf1595c8d7d2a47843600b390f29ba, type: 3}
