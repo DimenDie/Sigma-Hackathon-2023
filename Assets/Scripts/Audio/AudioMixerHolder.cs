@@ -21,6 +21,13 @@ public class AudioMixerHolder : MonoBehaviour
 
     public void TurnSoundOn()
     {
-        audioMixer.SetFloat("MasterVolume", defaultVolume);
+        float volume = PlayerPrefs.HasKey("VolumeSetting") ? PlayerPrefs.GetFloat("VolumeSetting") : defaultVolume;
+
+
+        audioMixer.SetFloat("MasterVolume", volume);
+
     }
+
+
+
 }

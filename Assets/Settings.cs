@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
     [SerializeField] GameObject sensSlider;
     [SerializeField] GameObject soundSlider;
     [SerializeField] GameObject player;
-    float volumeValue;
+    float volumeValue, sensitivityValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +27,17 @@ public class Settings : MonoBehaviour
     private void ChangeVolume()
     {
         player.GetComponent<AudioMixerHolder>().audioMixer.SetFloat("MasterVolume", soundSlider.GetComponent<Slider>().value);
-        player.GetComponent<AudioMixerHolder>().defaultVolume = soundSlider.GetComponent<Slider>().value;
+        volumeValue = soundSlider.GetComponent<Slider>().value;
     }
 
     private void ChangeSensitivity()
     {
         player.GetComponent<Movement>().mouseSensivity = sensSlider.GetComponent<Slider>().value;
-
     }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("VolumeSetting", volumeValue);
+    }
+
 }
